@@ -30,7 +30,7 @@ public class NewStarSoccerApp {
 	private MusabakaMod musabakaMod = MusabakaMod.getInstance();
 	
 	public static NewStarSoccerApp getInstance() {
-	return nssApp;
+		return nssApp;
 	}
 	
 	private NewStarSoccerApp() {
@@ -39,16 +39,15 @@ public class NewStarSoccerApp {
 	public static void main(String[] args) {
 		
 		
-		
-		
-		System.out.println("Program başlatılıyor");
+		System.out.println("Herro wold");
+		/*System.out.println("Program başlatılıyor");
 		nssApp.baslatVeYurutVerileri();
 		
 		
 		nssApp.zamanGecir();
 		nssApp.otoKayitThread();
 		//TODO menuleri tek bir cati altina topla menu(String menuMsg, Method menuSecenekleri)
-		nssApp.nssMenu();
+		nssApp.nssMenu();*/
 		
 		/*List<Integer> takimIdlerListesi = new ArrayList<>(List.of(10, 25, 47, 130, 33, 44));
 		List<Integer> indexes = new ArrayList<>();
