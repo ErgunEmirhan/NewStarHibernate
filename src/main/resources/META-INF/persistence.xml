@@ -5,7 +5,12 @@
              version="2.1">
 
     <persistence-unit name="pu_hibernate">
-        <class>SoccerApp.entities.Stadyum</class>
+        <class>SoccerApp.entity.Stadium</class>
+        <class>SoccerApp.entity.Club</class>
+        <class>SoccerApp.entity.Manager</class>
+        <class>SoccerApp.entity.Referee</class>
+        <class>SoccerApp.entity.MatchStatistics</class>
+
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver"
@@ -21,10 +26,12 @@
                       value="root" />
 
             <property name="hibernate.show_sql"
-                      value="false" />
+                      value="true" />
 
             <property name="hibernate.format_sql"
                       value="true" />
+            
+            <property name="hibernate.highlight_sql" value="true"/>
 
             <property name="hibernate.hbm2ddl.auto"
                       value="create" />

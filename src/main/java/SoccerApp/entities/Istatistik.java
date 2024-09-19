@@ -1,5 +1,7 @@
 package SoccerApp.entities;
 
+import jakarta.persistence.Table;
+
 import java.io.Serializable;
 
 public class Istatistik extends BaseEntity implements Serializable {

@@ -43,7 +43,7 @@ public class NewStarSoccerApp {
 		
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_hibernate");
-		/*EntityManager em = emf.createEntityManager();*/
+		//EntityManager em = emf.createEntityManager();
 		
 		/*System.out.println("Program başlatılıyor");
 		nssApp.baslatVeYurutVerileri();
