@@ -8,6 +8,9 @@ import SoccerApp.modules.LigMod;
 import SoccerApp.modules.MenajerMod;
 import SoccerApp.modules.MusabakaMod;
 import SoccerApp.utility.GeneratorRex;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.InvocationTargetException;
@@ -39,7 +42,9 @@ public class NewStarSoccerApp {
 	public static void main(String[] args) {
 		
 		
-		System.out.println("Herro wold");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_hibernate");
+		/*EntityManager em = emf.createEntityManager();*/
+		
 		/*System.out.println("Program başlatılıyor");
 		nssApp.baslatVeYurutVerileri();
 		

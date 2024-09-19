@@ -5,13 +5,8 @@
              version="2.1">
 
     <persistence-unit name="pu_hibernate">
-        <class>SoccerApp.entities.Futbolcu</class>
-        <class>SoccerApp.entities.Hakem</class>
-        <class>SoccerApp.entities.Kulup</class>
-        <class>SoccerApp.entities.Lig</class>
-        <class>SoccerApp.entities.Menajer</class>
-        <class>SoccerApp.entities.Musabaka</class>
         <class>SoccerApp.entities.Stadyum</class>
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver"
                       value="org.postgresql.Driver" />
@@ -34,6 +29,7 @@
             <property name="hibernate.hbm2ddl.auto"
                       value="create" />
             <!--    create,create-drop,update,validate değerlerini alabilir.        -->
+
         </properties>
 
     </persistence-unit>
