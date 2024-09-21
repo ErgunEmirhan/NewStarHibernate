@@ -1,9 +1,8 @@
 package SoccerApp.entity;
 
 import SoccerApp.entities.Takim;
-import SoccerApp.utility.enumeng.MatchType;
-import SoccerApp.utility.enums.EMusabakaTuru;
-import SoccerApp.utility.enumeng.WeatherCondition;
+import SoccerApp.utilities.enums.MatchType;
+import SoccerApp.utilities.enums.WeatherCondition;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +29,7 @@ public class Match {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "weathercondition")
 	private WeatherCondition weatherCondition;
-	@ManyToMany(targetEntity = Referee.class, cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "referees",
 	joinColumns = {@JoinColumn(name = "refereeid")},
 	inverseJoinColumns = {@JoinColumn(name = "matchid")})
@@ -40,6 +39,10 @@ public class Match {
 	private MatchType matchType;
 	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime matchDate;
-	private Takim evSahibi;
-	private Takim deplasman;
+	@ManyToOne
+	private Club home;
+	@ManyToOne
+	private Club away;
+	@Column(name = "seasonweek")
+	private Byte currentWeekofSeason;
 }
