@@ -1,11 +1,9 @@
 package SoccerApp.databases;
 
 
-import SoccerApp.entities.Kulup;
 import SoccerApp.entities.Lig;
-import SoccerApp.entities.Musabaka;
 import SoccerApp.models.DatabaseModel;
-import SoccerApp.utility.DatabaseManager;
+import SoccerApp.util.DatabaseManager;
 
 import java.util.List;
 import java.util.Optional;

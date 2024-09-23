@@ -1,7 +1,7 @@
 package SoccerApp.entities;
 
-import SoccerApp.utility.IHesap;
-import SoccerApp.utility.enums.EUyruk;
+import SoccerApp.util.IHesap;
+import SoccerApp.util.enums.EUyruk;
 
 import java.time.LocalDate;
 

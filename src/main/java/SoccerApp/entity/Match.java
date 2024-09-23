@@ -1,13 +1,13 @@
 package SoccerApp.entity;
 
-import SoccerApp.entities.Takim;
-import SoccerApp.utilities.enums.MatchType;
-import SoccerApp.utilities.enums.WeatherCondition;
+import SoccerApp.utility.enums.MatchType;
+import SoccerApp.utility.enums.WeatherCondition;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Check;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -18,6 +18,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "tblmatch")
+@Check(name = "home_away_check", constraints = "home_id != away_id")
 public class Match {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +31,7 @@ public class Match {
 	@Column(name = "weathercondition")
 	private WeatherCondition weatherCondition;
 	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name = "referees",
+	@JoinTable(
 	joinColumns = {@JoinColumn(name = "refereeid")},
 	inverseJoinColumns = {@JoinColumn(name = "matchid")})
 	private Set<Referee> referees;

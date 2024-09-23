@@ -1,8 +1,7 @@
 package SoccerApp.entities;
 
-import SoccerApp.utility.enums.EBolge;
-import SoccerApp.utility.enums.EKume;
-import SoccerApp.utility.enums.ESkorTablosuElemani;
+import SoccerApp.util.enums.EBolge;
+import SoccerApp.util.enums.EKume;
 
 import java.io.Serializable;
 import java.time.LocalDate;

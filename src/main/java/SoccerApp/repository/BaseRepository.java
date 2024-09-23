@@ -1,6 +1,6 @@
 package SoccerApp.repository;
 
-import SoccerApp.utilities.ICRUD;
+import SoccerApp.utility.ICRUD;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

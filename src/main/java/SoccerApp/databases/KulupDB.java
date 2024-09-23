@@ -2,15 +2,8 @@ package SoccerApp.databases;
 
 import SoccerApp.entities.Futbolcu;
 import SoccerApp.entities.Kulup;
-import SoccerApp.entities.Menajer;
-import SoccerApp.utility.DatabaseManager;
-import SoccerApp.utility.enums.EUyruk;
+import SoccerApp.util.DatabaseManager;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 

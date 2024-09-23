@@ -1,6 +1,6 @@
 package SoccerApp.entity;
 
-import SoccerApp.utilities.enums.Nationality;
+import SoccerApp.utility.enums.Nationality;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

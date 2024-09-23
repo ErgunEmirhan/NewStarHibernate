@@ -12,6 +12,8 @@
         <class>SoccerApp.entity.League</class>
         <class>SoccerApp.entity.MatchStatistics</class>
         <class>SoccerApp.entity.Match</class>
+        <class>SoccerApp.entity.Player</class>
+        <class>SoccerApp.entity.LineUp</class>
 
 
         <properties>

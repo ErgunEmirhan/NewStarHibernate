@@ -1,24 +1,21 @@
 package SoccerApp;
 
-import SoccerApp.databases.*;
 import SoccerApp.entities.Musabaka;
+import SoccerApp.entity.Club;
+import SoccerApp.entity.Manager;
 import SoccerApp.models.DatabaseModel;
 import SoccerApp.modules.KulupMod;
 import SoccerApp.modules.LigMod;
 import SoccerApp.modules.MenajerMod;
 import SoccerApp.modules.MusabakaMod;
-import SoccerApp.utility.GeneratorRex;
+import SoccerApp.repository.ClubRepository;
+import SoccerApp.util.GeneratorRex;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-import java.lang.invoke.MethodHandles;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.TextStyle;
 import java.util.*;
 
 public class NewStarSoccerApp {
@@ -31,6 +28,7 @@ public class NewStarSoccerApp {
 	private MenajerMod menajerMod = MenajerMod.getInstance();
 	private LigMod ligMod = LigMod.getInstance();
 	private MusabakaMod musabakaMod = MusabakaMod.getInstance();
+	private static ClubRepository clubRepository = ClubRepository.getInstance();
 	
 	public static NewStarSoccerApp getInstance() {
 		return nssApp;
@@ -43,7 +41,12 @@ public class NewStarSoccerApp {
 		
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_hibernate");
+		
+		
+		
+		
 		//EntityManager em = emf.createEntityManager();
+		
 		
 		/*System.out.println("Program başlatılıyor");
 		nssApp.baslatVeYurutVerileri();
@@ -222,8 +225,6 @@ public class NewStarSoccerApp {
 		otoKayit.interrupt();
 		GeneratorRex.kaydetTumVerileri();
 		return secim;
-		
-		
 	}
 	
 	private int nssMenuSecenekleri(int secim) {

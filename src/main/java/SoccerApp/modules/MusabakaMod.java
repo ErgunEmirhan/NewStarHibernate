@@ -4,7 +4,7 @@ import SoccerApp.NewStarSoccerApp;
 import SoccerApp.entities.*;
 import SoccerApp.models.DatabaseModel;
 import SoccerApp.models.LigModel;
-import SoccerApp.utility.enums.*;
+import SoccerApp.util.enums.*;
 
 import javax.sound.sampled.*;
 import java.io.File;

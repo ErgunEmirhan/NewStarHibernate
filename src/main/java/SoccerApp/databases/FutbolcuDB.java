@@ -1,14 +1,11 @@
 package SoccerApp.databases;
 
-import SoccerApp.entities.BaseEntity;
 import SoccerApp.entities.Futbolcu;
-import SoccerApp.utility.DatabaseManager;
-import SoccerApp.utility.enums.EMevki;
-import SoccerApp.utility.enums.EUyruk;
+import SoccerApp.util.DatabaseManager;
+import SoccerApp.util.enums.EMevki;
+import SoccerApp.util.enums.EUyruk;
 
-import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FutbolcuDB extends DatabaseManager<Futbolcu> {

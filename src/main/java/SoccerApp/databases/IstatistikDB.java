@@ -1,8 +1,7 @@
 package SoccerApp.databases;
 
 import SoccerApp.entities.Istatistik;
-import SoccerApp.entities.Kulup;
-import SoccerApp.utility.DatabaseManager;
+import SoccerApp.util.DatabaseManager;
 
 public class IstatistikDB extends DatabaseManager<Istatistik> {
 	private static IstatistikDB istatistikDB = new IstatistikDB();

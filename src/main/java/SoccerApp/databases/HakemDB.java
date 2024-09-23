@@ -1,16 +1,10 @@
 package SoccerApp.databases;
 
-import SoccerApp.entities.Futbolcu;
 import SoccerApp.entities.Hakem;
-import SoccerApp.utility.DatabaseManager;
-import SoccerApp.utility.enums.EKokart;
-import SoccerApp.utility.enums.EMevki;
-import SoccerApp.utility.enums.EUyruk;
+import SoccerApp.util.DatabaseManager;
+import SoccerApp.util.enums.EKokart;
+import SoccerApp.util.enums.EUyruk;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
 public class HakemDB extends DatabaseManager<Hakem> {

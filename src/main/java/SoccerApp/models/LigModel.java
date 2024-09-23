@@ -4,7 +4,6 @@ import SoccerApp.entities.Istatistik;
 import SoccerApp.entities.Kulup;
 import SoccerApp.entities.Lig;
 import SoccerApp.entities.Musabaka;
-import SoccerApp.utility.enums.ESkorTablosuElemani;
 
 import java.text.Collator;
 import java.time.*;

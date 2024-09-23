@@ -1,14 +1,9 @@
 package SoccerApp.databases;
 
 import SoccerApp.entities.Menajer;
-import SoccerApp.entities.Stadyum;
-import SoccerApp.utility.DatabaseManager;
-import SoccerApp.utility.enums.EUyruk;
+import SoccerApp.util.DatabaseManager;
+import SoccerApp.util.enums.EUyruk;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
 public class MenajerDB extends DatabaseManager<Menajer> {

@@ -1,13 +1,11 @@
 package SoccerApp.entities;
 
-import SoccerApp.utility.enums.EHavaDurumu;
-import SoccerApp.utility.enums.EMusabakaTuru;
+import SoccerApp.util.enums.EHavaDurumu;
+import SoccerApp.util.enums.EMusabakaTuru;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Musabaka extends BaseEntity implements Serializable {

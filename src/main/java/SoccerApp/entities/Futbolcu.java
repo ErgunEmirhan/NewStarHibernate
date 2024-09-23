@@ -1,12 +1,9 @@
 package SoccerApp.entities;
 
-import SoccerApp.utility.enums.EMevki;
-import SoccerApp.utility.enums.EUyruk;
+import SoccerApp.util.enums.EMevki;
+import SoccerApp.util.enums.EUyruk;
 
-import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class Futbolcu extends Insan{

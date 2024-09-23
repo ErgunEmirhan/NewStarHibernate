@@ -1,9 +1,7 @@
 package SoccerApp.entity;
 
-import SoccerApp.utilities.enums.Division;
-import SoccerApp.utilities.enums.Region;
-import SoccerApp.utility.enums.EBolge;
-import SoccerApp.utility.enums.EKume;
+import SoccerApp.utility.enums.Division;
+import SoccerApp.utility.enums.Region;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,7 +37,8 @@ public class League extends BaseEntity{
 	@Column(name = "enddate")
 	private LocalDate endDate;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn
 	private Set<Match> fixture;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST,mappedBy = "league")
 	private Set<MatchStatistics> standings;
 }

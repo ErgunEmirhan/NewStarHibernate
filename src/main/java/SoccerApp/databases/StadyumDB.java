@@ -1,16 +1,7 @@
 package SoccerApp.databases;
 
-import SoccerApp.entities.Hakem;
 import SoccerApp.entities.Stadyum;
-import SoccerApp.utility.DatabaseManager;
-import SoccerApp.utility.enums.EKokart;
-import SoccerApp.utility.enums.EUyruk;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.time.LocalDate;
+import SoccerApp.util.DatabaseManager;
 
 public class StadyumDB extends DatabaseManager<Stadyum> {
 	private static StadyumDB stadyumDB=new StadyumDB();

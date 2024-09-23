@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
@@ -19,7 +21,8 @@ public class Club extends BaseEntity {
 	private Long id;
 	
 	private String name;
-	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST,mappedBy = "club")
+	private Set<Player> playerList;
 	@Column(name = "foundationyear")
 	private Integer foundationYear;
 	

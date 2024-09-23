@@ -6,9 +6,8 @@ import SoccerApp.entities.Kulup;
 import SoccerApp.entities.Lig;
 import SoccerApp.models.DatabaseModel;
 import SoccerApp.models.LigModel;
-import SoccerApp.utility.enums.EBolge;
-import SoccerApp.utility.enums.EKume;
-import SoccerApp.utility.enums.ESkorTablosuElemani;
+import SoccerApp.util.enums.EBolge;
+import SoccerApp.util.enums.EKume;
 
 import java.time.*;
 import java.util.*;
