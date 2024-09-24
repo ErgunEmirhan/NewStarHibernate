@@ -1,10 +1,7 @@
 package SoccerApp.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Set;
@@ -13,6 +10,7 @@ import java.util.Set;
 @AllArgsConstructor
 @SuperBuilder
 @Data
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "tbllineup")
 public class LineUp extends BaseEntity{

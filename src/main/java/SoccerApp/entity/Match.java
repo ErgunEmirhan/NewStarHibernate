@@ -24,9 +24,9 @@ public class Match {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
-	@JoinColumn(referencedColumnName = "id", name = "stadiumid")
+	@JoinColumn(name = "stadiumid")
 	private Stadium stadium;
-	private int time = 90;
+	private final int time = 90;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "weathercondition")
 	private WeatherCondition weatherCondition;
@@ -38,7 +38,6 @@ public class Match {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "matchtype")
 	private MatchType matchType;
-	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime matchDate;
 	@ManyToOne
 	private Club home;

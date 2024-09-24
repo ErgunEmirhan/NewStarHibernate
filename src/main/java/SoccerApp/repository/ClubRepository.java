@@ -19,6 +19,6 @@ public class ClubRepository extends BaseRepository<Club, Long> {
 	}
 	
 	public List<Club> findByName(String name){
-		return getEntityManager().createNativeQuery("SELECT * FROM tblclub WHERE name ILIKE "+name,Club.class).getResultList();
+		return getEntityManager().createNativeQuery("SELECT * FROM tblclub WHERE name ILIKE '%" + name + "%'",Club.class).getResultList();
 	}
 }

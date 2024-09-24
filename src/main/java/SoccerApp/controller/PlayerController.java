@@ -1,8 +1,7 @@
 package SoccerApp.controller;
 
 import SoccerApp.entity.Player;
-import SoccerApp.services.PlayerService;
-import SoccerApp.utility.ICRUDService;
+import SoccerApp.service.PlayerService;
 
 public class PlayerController extends BaseController<Player,Long>{
 	private static PlayerController instance;

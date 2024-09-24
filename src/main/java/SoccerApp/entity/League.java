@@ -5,6 +5,7 @@ import SoccerApp.utility.enums.Region;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -15,6 +16,7 @@ import java.util.*;
 @AllArgsConstructor
 @SuperBuilder
 @Data
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "tblleague")
 public class League extends BaseEntity{

@@ -1,14 +1,14 @@
 package SoccerApp.controller;
 
 import SoccerApp.entity.Club;
-import SoccerApp.services.ClubService;
+import SoccerApp.service.ClubService;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class ClubController extends BaseController<Club,Long>{
 	private static ClubController instance;
-
+	private ClubService clubService = ClubService.getInstance();
 	public static ClubController getInstance() {
 		if (instance == null) {
 			instance = new ClubController();
@@ -19,7 +19,13 @@ public class ClubController extends BaseController<Club,Long>{
 		super(ClubService.getInstance());
 	}
 	
-//	public List<Club> findByName(String name){
-//
-//	}
+	public List<Club> findClubByName(String nameFilter) {
+		try {
+			return clubService.findByName(nameFilter);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
 }

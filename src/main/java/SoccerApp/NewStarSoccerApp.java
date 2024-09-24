@@ -1,16 +1,13 @@
 package SoccerApp;
 
-import SoccerApp.entities.Musabaka;
-import SoccerApp.entity.Club;
-import SoccerApp.entity.Manager;
-import SoccerApp.models.DatabaseModel;
-import SoccerApp.modules.KulupMod;
-import SoccerApp.modules.LigMod;
-import SoccerApp.modules.MenajerMod;
-import SoccerApp.modules.MusabakaMod;
+import eski.entities.Musabaka;
+import eski.models.DatabaseModel;
+import eski.modules.KulupMod;
+import eski.modules.LigMod;
+import eski.modules.MenajerMod;
+import eski.modules.MusabakaMod;
 import SoccerApp.repository.ClubRepository;
-import SoccerApp.util.GeneratorRex;
-import jakarta.persistence.EntityManager;
+import eski.util.GeneratorRex;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 

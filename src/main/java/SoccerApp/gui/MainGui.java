@@ -63,7 +63,7 @@ public class MainGui {
 			case 1:
 			return clubGui.clubGuiMainMenu();
 			case 2:
-			
+			break;
 			case 3:
 			return leagueGui.leagueGuiMainMenu();
 			case 4:

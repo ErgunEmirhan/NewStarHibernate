@@ -1,7 +1,7 @@
 package SoccerApp.controller;
 
 import SoccerApp.entity.Manager;
-import SoccerApp.services.ManagerService;
+import SoccerApp.service.ManagerService;
 
 public class ManagerController extends BaseController<Manager,Long> {
 	private static ManagerController instance;

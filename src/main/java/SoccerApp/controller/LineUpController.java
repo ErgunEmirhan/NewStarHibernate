@@ -1,8 +1,7 @@
 package SoccerApp.controller;
 
 import SoccerApp.entity.LineUp;
-import SoccerApp.services.LineUpService;
-import SoccerApp.utility.ICRUDService;
+import SoccerApp.service.LineUpService;
 
 public class LineUpController extends BaseController<LineUp,Long>{
 	private static LineUpController instance;

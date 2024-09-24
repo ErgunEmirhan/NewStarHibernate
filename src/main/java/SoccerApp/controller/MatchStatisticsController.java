@@ -1,8 +1,7 @@
 package SoccerApp.controller;
 
 import SoccerApp.entity.MatchStatistics;
-import SoccerApp.services.MatchStatisticsService;
-import SoccerApp.utility.ICRUDService;
+import SoccerApp.service.MatchStatisticsService;
 
 public class MatchStatisticsController extends BaseController<MatchStatistics,Long>{
 	private static MatchStatisticsController instance;

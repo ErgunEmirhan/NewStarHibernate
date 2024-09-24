@@ -1,9 +1,10 @@
 package SoccerApp.entity;
 
-import SoccerApp.util.enums.EKokart;
+import eski.util.enums.EKokart;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -11,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Data
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "tblreferee")
 public class Referee extends Person{

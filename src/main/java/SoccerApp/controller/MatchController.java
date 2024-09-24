@@ -1,7 +1,7 @@
 package SoccerApp.controller;
 
 import SoccerApp.entity.Match;
-import SoccerApp.services.MatchService;
+import SoccerApp.service.MatchService;
 
 public class MatchController extends BaseController<Match,Long>{
 	private static MatchController instance;

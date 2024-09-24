@@ -1,15 +1,18 @@
 package SoccerApp.gui;
 
-import SoccerApp.entities.Kulup;
+import SoccerApp.controller.ClubController;
+import eski.entities.Kulup;
 import SoccerApp.entity.Club;
 import SoccerApp.utility.InputHandler;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class ClubGui {
 	private static ClubGui instance;
-	
-	
+	private ClubController clubController = ClubController.getInstance();
+	private Scanner scanner = new Scanner(System.in);
+	private List<Club> listedClubs;
 	public static ClubGui getInstance() {
 		if(instance==null){
 			instance=new ClubGui();
@@ -23,13 +26,12 @@ public class ClubGui {
 	public int clubGuiMainMenu() {
 		int secim;
 		do {
-			System.out.println("""
-					                   #### NewStarSoccer Uygulamasına Hoşgeldiniz ####
-					                           1. İsme Göre Kulüp Ara
-					                           2. Kulüpleri Listele
-					                           0. Geri Dön
-					                          -1. Çıkış
-					                           """);
+			System.out.println("#### NewStarSoccer Uygulamasına Hoşgeldiniz ####");
+			System.out.println("1. İsme Göre Kulüp Ara");
+			System.out.println("2. Kulüpleri Listele");
+			if (!listedClubs.isEmpty()) System.out.println("3. Seç Kulüp");
+			System.out.println("0. Geri Dön");
+			System.out.println("-1. Çıkış");
 			
 			secim = InputHandler.integerInput();
 			if (secim == 0) {
@@ -45,11 +47,16 @@ public class ClubGui {
 		List<Kulup> kulupler = null;
 		switch (choice) {
 			case 1:
-				
+				findClubByName();
 				break;
 			case 2:
-				
+				findAllClubs();
 				break;
+			case 3:
+				if (listedClubs.isEmpty()) System.out.println("Geçersiz girdi.... x_x");
+				else {
+					// kulup seç metodu
+				}
 			case -1:
 				System.out.println("Çıkış yapılıyor...");
 				return choice;
@@ -58,6 +65,24 @@ public class ClubGui {
 				return choice;
 		}
 		return choice;
+	}
+	
+	private void findAllClubs() {
+		List<Club> optListedClubs = clubController.findAll();
+		if (optListedClubs.isEmpty()) {
+			System.out.println("Kritere uyan kulup bulunamadi.");
+			return;
+		}
+		else {
+			listedClubs = optListedClubs;
+			// listerClubs'ı model ile yazdır
+		}
+	}
+	
+	private List<Club> findClubByName() {
+		System.out.print("Giriniz isim filtrenizi> ");
+		String clubNameFilter = scanner.nextLine();
+		return clubController.findClubByName(clubNameFilter);
 	}
 	//TODO : club seçme metodu oluşturulacak.
 	
