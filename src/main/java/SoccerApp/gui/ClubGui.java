@@ -1,6 +1,5 @@
-package gui;
+package SoccerApp.gui;
 
-import SoccerApp.entities.Futbolcu;
 import SoccerApp.entities.Kulup;
 import SoccerApp.entity.Club;
 import SoccerApp.utility.InputHandler;

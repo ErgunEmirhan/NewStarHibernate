@@ -2,12 +2,16 @@ package SoccerApp.services;
 
 import SoccerApp.entity.Club;
 import SoccerApp.repository.ClubRepository;
+import SoccerApp.utility.ICRUD;
 
 import java.util.List;
 
 public class ClubService extends BaseServices<Club,Long> {
 	private static ClubService instance;
-	private ClubRepository clubRepository;
+	
+	public ClubService() {
+		super(ClubRepository.getInstance());
+	}
 	
 	public static ClubService getInstance() {
 		if (instance == null) {
@@ -15,11 +19,9 @@ public class ClubService extends BaseServices<Club,Long> {
 		}
 		return instance;
 	}
-	private ClubService() {
-		clubRepository = ClubRepository.getInstance();
-	}
-	public List<Club> findByName(String name){
-		return  clubRepository.findByName(name);
-	}
+	
+//	public List<Club> findByName(String name){
+//		return  clubRepository.findByName(name);
+//	}
 	
 }

@@ -1,6 +1,5 @@
-package gui;
+package SoccerApp.gui;
 
-import SoccerApp.entity.Club;
 import SoccerApp.utility.InputHandler;
 
 public class MainGui {

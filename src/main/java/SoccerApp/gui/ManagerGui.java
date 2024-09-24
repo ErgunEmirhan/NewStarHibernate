@@ -1,4 +1,4 @@
-package gui;
+package SoccerApp.gui;
 
 import SoccerApp.entity.Manager;
 import SoccerApp.utility.InputHandler;

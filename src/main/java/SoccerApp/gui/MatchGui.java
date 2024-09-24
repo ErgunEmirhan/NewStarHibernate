@@ -1,4 +1,4 @@
-package gui;
+package SoccerApp.gui;
 
 import SoccerApp.NewStarSoccerApp;
 

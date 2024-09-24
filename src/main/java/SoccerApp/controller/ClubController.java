@@ -19,7 +19,7 @@ public class ClubController extends BaseController<Club,Long>{
 		super(ClubService.getInstance());
 	}
 	
-	public List<Club> findByName(String name){
-	
-	}
+//	public List<Club> findByName(String name){
+//
+//	}
 }

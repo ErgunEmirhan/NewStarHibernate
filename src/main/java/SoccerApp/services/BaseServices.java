@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class BaseServices<T,ID> implements ICRUDService<T,ID> {
-	protected  ICRUD<T, ID> repository;
-
+	protected final ICRUD<T, ID> repository;
+	
+	public BaseServices(ICRUD<T, ID> repository) {
+		this.repository = repository;
+	}
 	
 	
 	@Override
