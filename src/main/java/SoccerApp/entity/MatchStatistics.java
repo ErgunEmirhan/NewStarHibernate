@@ -5,20 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.experimental.SuperBuilder;
 
 
 import java.io.Serializable;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Data
 @Entity
 @Table(name = "tblmatchstatistics")
-
-
-public class MatchStatistics {
+public class MatchStatistics extends BaseEntity{
 	@Id
 	@ManyToOne
 	private Club club;

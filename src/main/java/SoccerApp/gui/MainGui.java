@@ -61,13 +61,14 @@ public class MainGui {
 	private int mainGuiMainMenuOptions(int choice) {
 		switch (choice) {
 			case 1:
-			return clubGui.clubGuiMainMenu();
+				return clubGui.clubGuiMainMenu();
 			case 2:
+				// menager hesap açma
 			break;
 			case 3:
-			return leagueGui.leagueGuiMainMenu();
+				return leagueGui.leagueGuiMainMenu();
 			case 4:
-			return matchGui.matchGuiMainMenu();
+				return matchGui.matchGuiMainMenu();
 			case -1:
 				return choice;
 		}

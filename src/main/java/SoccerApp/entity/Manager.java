@@ -23,5 +23,4 @@ public class Manager extends Person{
 	private Club club;
 	@Column(name = "contractenddate")
 	private LocalDate contractEndDate;
-	private String password;
 }

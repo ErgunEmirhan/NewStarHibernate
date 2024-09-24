@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @SuperBuilder
 @Data
 @MappedSuperclass
-public abstract class Person {
+public abstract class Person extends BaseEntity {
 	@Column(name = "firstname")
 	private String firstName;
 	@Column(name = "lastname")

@@ -22,7 +22,7 @@ public class Club extends BaseEntity {
 	
 	private String name;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, mappedBy = "club")
-	private Set<Player> playerList;
+	private Set<Player> squad;
 	@Column(name = "foundationyear")
 	private Integer foundationYear;
 	
