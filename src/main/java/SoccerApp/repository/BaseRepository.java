@@ -17,11 +17,13 @@ import java.util.Optional;
 
 public class BaseRepository<T, ID> implements ICRUD<T, ID> {
 	final EntityManagerFactory emf;
+	CriteriaBuilder criteriaBuilder ;
 	private final Class<T> entityClass;
 	
 	public BaseRepository(Class<T> entityClass) {
 		this.emf = Persistence.createEntityManagerFactory("pu_hibernate");
 		this.entityClass = entityClass;
+		criteriaBuilder=getEntityManager().getCriteriaBuilder();
 	}
 	public EntityManager getEntityManager() {
 		return emf.createEntityManager();

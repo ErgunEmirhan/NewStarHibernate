@@ -8,6 +8,7 @@ public class MainGui {
 	private LeagueGui leagueGui;
 	private MatchGui matchGui;
 	private ManagerGui managerGui;
+	private AccountGui accountGui;
 	public static MainGui getInstance() {
 		if (instance == null) {
 			instance = new MainGui();
@@ -20,6 +21,7 @@ public class MainGui {
 		this.leagueGui=LeagueGui.getInstance();
 		this.matchGui=MatchGui.getInstance();
 		this.managerGui=ManagerGui.getInstance();
+		this.accountGui=AccountGui.getInstance();
 	}
 	
 	//TODO : zaman ilerleten thread yapılacak.
@@ -63,7 +65,7 @@ public class MainGui {
 			case 1:
 				return clubGui.clubGuiMainMenu();
 			case 2:
-				// menager hesap açma
+				 accountGui.logIn();
 			break;
 			case 3:
 				return leagueGui.leagueGuiMainMenu();
