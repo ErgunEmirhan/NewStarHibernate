@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+
 import java.time.LocalDate;
 
 
@@ -23,4 +24,7 @@ public class Manager extends Person{
 	private Club club;
 	@Column(name = "contractenddate")
 	private LocalDate contractEndDate;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	Account account;
+	
 }
