@@ -2,14 +2,22 @@ package SoccerApp.gui;
 
 import SoccerApp.controller.ManagerController;
 import SoccerApp.controller.TransferController;
+import SoccerApp.dto.request.TransferRequestDto;
 import SoccerApp.entity.Manager;
+import SoccerApp.entity.Player;
 import SoccerApp.utility.InputHandler;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
 public class ManagerGui {
+	private Manager manager;
 	private ManagerController managerController;
 	private ClubGui clubGui;
 	private TransferController transferController;
 	private static ManagerGui instance;
+	private PlayerGui playerGui;
+	
 	public static ManagerGui getInstance() {
 		if (instance == null) {
 			instance = new ManagerGui();
@@ -21,9 +29,11 @@ public class ManagerGui {
 		managerController = ManagerController.getInstance();
 		clubGui=ClubGui.getInstance();
 		transferController=TransferController.getInstance();
+		playerGui=PlayerGui.getInstance();
 	}
 	
 	public int managerGuiMainMenu(Manager manager) {
+		this.manager = manager;
 		int choice;
 		do {
 			System.out.println("""
@@ -41,12 +51,12 @@ public class ManagerGui {
 				System.out.println("Hesaptan çıkış yapılıyor");
 				break;
 			}
-			choice = menuSecenekleri(choice, manager);
+			choice = menuOptions(choice, manager);
 		} while (choice != -1);
 		return choice;
 	}
 	
-	private int menuSecenekleri(int choice, Manager manager) {
+	private int menuOptions(int choice, Manager manager) {
 		switch (choice) {
 			case 1:
 				managerController.showMyClub(manager);
@@ -55,7 +65,10 @@ public class ManagerGui {
 				clubGui.clubGuiMainMenu();
 				break;
 			case 3:
-				transferController.makeTransferRequest(manager);
+				Optional<Player> optPlayer = playerGui.playerGuiMainMenu(manager);
+				optPlayer.ifPresent(this::makeTransferRequest);
+				break;
+			case 4:
 				break;
 			case -1:
 				System.out.println("Çıkış Yapılıyor...");
@@ -67,6 +80,13 @@ public class ManagerGui {
 				System.out.println("Geçerli bir seçim yapınız... x_x");
 		}
 		return choice;
+	}
+	
+	private void makeTransferRequest(Player player) {
+		LocalDate transferDate = InputHandler.localDateInput("Transfer tarihi giriniz");
+		Double transferFee = InputHandler.doubleInput("Enter transfer fee");
+		TransferRequestDto transferRequest = new TransferRequestDto(manager, player, transferFee, transferDate);
+		transferController.makeTransferRequest(transferRequest);
 	}
 	
 }

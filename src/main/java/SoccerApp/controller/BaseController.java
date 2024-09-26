@@ -3,6 +3,7 @@ package SoccerApp.controller;
 import SoccerApp.utility.ICRUD;
 import SoccerApp.utility.ICRUDService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,12 +14,24 @@ public class BaseController <T,ID> implements ICRUD<T,ID> {
 	}
 	@Override
 	public T save(T entity) {
-		return service.save(entity);
+		try {
+			return service.save(entity);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return entity;
+		}
 	}
 	
 	@Override
 	public Iterable<T> saveAll(Iterable<T> entities) {
-		return service.saveAll(entities);
+		try {
+			return service.saveAll(entities);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return entities;
+		}
 	}
 	
 	@Override
@@ -28,7 +41,13 @@ public class BaseController <T,ID> implements ICRUD<T,ID> {
 	
 	@Override
 	public Optional<T> findById(ID id) {
-		return service.findById(id);
+		try {
+			return service.findById(id);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return Optional.empty();
+		}
 	}
 	
 	@Override
@@ -38,16 +57,34 @@ public class BaseController <T,ID> implements ICRUD<T,ID> {
 	
 	@Override
 	public List<T> findAll() {
-		return service.findAll();
+		try {
+			return service.findAll();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
 	}
 	
 	@Override
 	public List<T> findByFieldNameAndValue(String fieldName, Object value) {
-		return service.findByFieldNameAndValue(fieldName, value);
+		try {
+			return service.findByFieldNameAndValue(fieldName, value);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
 	}
 	
 	@Override
 	public List<T> findByFilledFields(T entity) {
-		return service.findByFilledFields(entity);
+		try {
+			return service.findByFilledFields(entity);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
 	}
 }
