@@ -5,7 +5,7 @@ import SoccerApp.repository.ClubRepository;
 
 import java.util.List;
 
-public class ClubService extends BaseServices<Club,Long> {
+public class ClubService extends BaseService<Club,Long> {
 	private static ClubService instance;
 	private static ClubRepository repository = ClubRepository.getInstance();
 	

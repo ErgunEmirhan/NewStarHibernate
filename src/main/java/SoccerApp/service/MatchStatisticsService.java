@@ -3,7 +3,7 @@ package SoccerApp.service;
 import SoccerApp.entity.MatchStatistics;
 import SoccerApp.repository.MatchStatisticsRepository;
 
-public class MatchStatisticsService extends BaseServices<MatchStatistics,Long> {
+public class MatchStatisticsService extends BaseService<MatchStatistics,Long> {
 	private static MatchStatisticsService instance;
 	public static MatchStatisticsService getInstance() {
 		if (instance == null) {

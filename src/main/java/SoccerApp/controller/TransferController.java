@@ -1,10 +1,10 @@
 package SoccerApp.controller;
 
-import SoccerApp.dto.request.TransferRequestDto;
-import SoccerApp.entity.Offer;
+import SoccerApp.dto.request.OfferWithManagerRequestDto;
+import SoccerApp.entity.Transfer;
 import SoccerApp.service.TransferService;
 
-public class TransferController extends BaseController<Offer,Long> {
+public class TransferController extends BaseController<Transfer,Long> {
 	private static TransferController instance;
 	private TransferService service;
 	public static TransferController getInstance() {
@@ -18,12 +18,5 @@ public class TransferController extends BaseController<Offer,Long> {
 		service = TransferService.getInstance();
 	}
 	
-	public void makeTransferRequest(TransferRequestDto transferRequestDto) {
-		try {
-			service.makeTransferRequest(transferRequestDto);
-		}
-		catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+	
 }

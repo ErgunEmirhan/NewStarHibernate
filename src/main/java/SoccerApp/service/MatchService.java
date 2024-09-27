@@ -3,7 +3,7 @@ package SoccerApp.service;
 import SoccerApp.entity.Match;
 import SoccerApp.repository.MatchRepository;
 
-public class MatchService extends BaseServices<Match,Long> {
+public class MatchService extends BaseService<Match,Long> {
 	private static MatchService instance;
 
 	public static MatchService getInstance() {

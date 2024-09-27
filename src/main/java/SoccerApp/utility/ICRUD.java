@@ -1,10 +1,14 @@
 package SoccerApp.utility;
 
+import SoccerApp.entity.Manager;
+
 import java.util.List;
 import java.util.Optional;
 
 public interface ICRUD<T, ID> {
 	T save(T entity);
+	
+	void update(T entity);
 	
 	Iterable<T> saveAll(Iterable<T> entities);
 	
@@ -19,4 +23,5 @@ public interface ICRUD<T, ID> {
 	List<T> findByFieldNameAndValue(String fieldName, Object value);
 	
 	List<T> findByFilledFields(T entity);
+	
 }

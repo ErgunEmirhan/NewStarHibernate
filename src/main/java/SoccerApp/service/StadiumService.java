@@ -3,7 +3,7 @@ package SoccerApp.service;
 import SoccerApp.entity.Stadium;
 import SoccerApp.repository.StadiumRepository;
 
-public class StadiumService extends BaseServices<Stadium,Long> {
+public class StadiumService extends BaseService<Stadium,Long> {
 	private static StadiumService instance;
 
 	public static StadiumService getInstance() {

@@ -1,8 +1,9 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.Offer;
+import SoccerApp.entity.OfferWithManager;
+import SoccerApp.entity.Transfer;
 
-public class TransferRepository extends BaseRepository<Offer,Long> {
+public class TransferRepository extends BaseRepository<Transfer,Long> {
 	private static TransferRepository instance;
 	public static TransferRepository getInstance() {
 		
@@ -12,7 +13,7 @@ public class TransferRepository extends BaseRepository<Offer,Long> {
 		return instance;
 	}
 	private TransferRepository() {
-		super(Offer.class);
+		super(Transfer.class);
 	}
 	
 }

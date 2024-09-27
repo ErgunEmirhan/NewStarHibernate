@@ -3,23 +3,14 @@ package SoccerApp.dto.request;
 import SoccerApp.entity.Manager;
 import SoccerApp.entity.Player;
 
-import java.time.LocalDate;
-
-public class TransferRequestDto {
+public class OfferWithManagerRequestDto {
 	private Manager manager;
 	private Player player;
 	private Double transferFee;
-	private LocalDate transferDate;
-	
-	public TransferRequestDto(Manager manager, Player player, Double transferFee, LocalDate transferDate) {
+	public OfferWithManagerRequestDto(Manager manager, Player player, Double transferFee) {
 		this.manager = manager;
 		this.player = player;
 		this.transferFee = transferFee;
-		this.transferDate = transferDate;
-	}
-	
-	public LocalDate getTransferDate() {
-		return transferDate;
 	}
 	
 	public Manager getManager() {

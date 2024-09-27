@@ -6,10 +6,10 @@ import SoccerApp.utility.ICRUDService;
 import java.util.List;
 import java.util.Optional;
 
-public class BaseServices<T,ID> implements ICRUDService<T,ID> {
+public class BaseService<T,ID> implements ICRUDService<T,ID> {
 	protected final ICRUD<T, ID> repository;
 	
-	public BaseServices(ICRUD<T, ID> repository) {
+	public BaseService(ICRUD<T, ID> repository) {
 		this.repository = repository;
 	}
 	
@@ -22,6 +22,11 @@ public class BaseServices<T,ID> implements ICRUDService<T,ID> {
 	@Override
 	public Iterable<T> saveAll(Iterable<T> entities) {
 		return repository.saveAll(entities);
+	}
+	
+	@Override
+	public void update(T entity) {
+		repository.update(entity);
 	}
 	
 	@Override

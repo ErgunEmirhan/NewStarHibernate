@@ -3,7 +3,7 @@ package SoccerApp.service;
 import SoccerApp.entity.Referee;
 import SoccerApp.repository.RefereeRepository;
 
-public class RefereeService extends BaseServices<Referee,Long> {
+public class RefereeService extends BaseService<Referee,Long> {
 	private static RefereeService instance;
 
 	public static RefereeService getInstance() {

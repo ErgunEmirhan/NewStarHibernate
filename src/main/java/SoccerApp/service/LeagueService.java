@@ -3,7 +3,7 @@ package SoccerApp.service;
 import SoccerApp.entity.League;
 import SoccerApp.repository.LeagueRepository;
 
-public class LeagueService extends BaseServices<League,Long> {
+public class LeagueService extends BaseService<League,Long> {
 	private static LeagueService instance;
 
 	public static LeagueService getInstance() {

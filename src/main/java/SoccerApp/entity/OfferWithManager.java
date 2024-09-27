@@ -1,6 +1,6 @@
 package SoccerApp.entity;
 
-import SoccerApp.utility.enums.OfferStatus;
+import SoccerApp.utility.enums.ManagerOfferStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,17 +14,17 @@ import java.time.LocalDate;
 @SuperBuilder
 @Data
 @Entity
-@Table(name = "tbltransfer")
+@Table(name = "tblofferwithmanager")
 
-public class Offer extends BaseEntity {
+public class OfferWithManager extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	// TODO : transfer sezonları eklenecek.
 	@ManyToOne
-	Manager offeringManager;
+	Manager buyerManager;
 	@ManyToOne
-	Manager receivingManager;
+	Manager ownerManager;
 	@ManyToOne
 	Club buyerClub;
 	@ManyToOne
@@ -36,7 +36,6 @@ public class Offer extends BaseEntity {
 	
 	LocalDate offerDate;
 	
-	LocalDate transferDate;
-	
-	OfferStatus offerStatus;
+	@Enumerated(EnumType.STRING)
+	ManagerOfferStatus offerStatus;
 }

@@ -50,6 +50,25 @@ public class BaseRepository<T, ID> implements ICRUD<T, ID> {
 		return entity;
 	}
 	
+	public void update(T entity) {
+		EntityManager em = getEntityManager();
+		EntityTransaction tx = null;
+		try {
+			tx = em.getTransaction();
+			tx.begin();
+			em.merge(entity);
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			System.out.println("Update metodunda hata..."+e.getMessage());
+		}
+		finally {
+			em.close();
+		}
+	}
 	
 	
 	@Override

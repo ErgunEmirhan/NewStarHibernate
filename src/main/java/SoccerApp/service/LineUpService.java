@@ -3,7 +3,7 @@ package SoccerApp.service;
 import SoccerApp.entity.LineUp;
 import SoccerApp.repository.LineUpRepository;
 
-public class LineUpService extends BaseServices<LineUp,Long> {
+public class LineUpService extends BaseService<LineUp,Long> {
 	private static LineUpService instance;
 	public static LineUpService getInstance() {
 		if (instance == null) {

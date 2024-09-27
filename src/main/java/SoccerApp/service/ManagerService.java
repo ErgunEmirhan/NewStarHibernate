@@ -5,7 +5,7 @@ import SoccerApp.repository.ManagerRepository;
 
 import java.util.Optional;
 
-public class ManagerService extends BaseServices<Manager,Long> {
+public class ManagerService extends BaseService<Manager,Long> {
 	private static ManagerService instance;
 	private ManagerRepository repository=ManagerRepository.getInstance();
 	public static ManagerService getInstance() {

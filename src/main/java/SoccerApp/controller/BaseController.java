@@ -24,6 +24,11 @@ public class BaseController <T,ID> implements ICRUD<T,ID> {
 	}
 	
 	@Override
+	public void update(T entity) {
+		service.update(entity);
+	}
+	
+	@Override
 	public Iterable<T> saveAll(Iterable<T> entities) {
 		try {
 			return service.saveAll(entities);

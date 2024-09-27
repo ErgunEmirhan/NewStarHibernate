@@ -1,13 +1,20 @@
 package SoccerApp.gui;
 
 import SoccerApp.controller.ManagerController;
+import SoccerApp.controller.OfferWithManagerController;
+import SoccerApp.controller.OfferWithPlayerController;
 import SoccerApp.controller.TransferController;
-import SoccerApp.dto.request.TransferRequestDto;
+import SoccerApp.dto.request.OfferWithManagerRequestDto;
 import SoccerApp.entity.Manager;
+import SoccerApp.entity.OfferWithManager;
+import SoccerApp.entity.OfferWithPlayer;
 import SoccerApp.entity.Player;
+import SoccerApp.model.OwmBoxModel;
+import SoccerApp.model.OwpBoxModel;
 import SoccerApp.utility.InputHandler;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class ManagerGui {
@@ -17,6 +24,12 @@ public class ManagerGui {
 	private TransferController transferController;
 	private static ManagerGui instance;
 	private PlayerGui playerGui;
+	private OfferWithManagerController owmController;
+	private OfferWithPlayerController owpController;
+	private OwmGui owmGui;
+	private OwpGui owpGui;
+	private List<OfferWithManager> owmBox = new ArrayList<>();
+	private List<OfferWithPlayer> owpBox = new ArrayList<>();
 	
 	public static ManagerGui getInstance() {
 		if (instance == null) {
@@ -30,10 +43,15 @@ public class ManagerGui {
 		clubGui=ClubGui.getInstance();
 		transferController=TransferController.getInstance();
 		playerGui=PlayerGui.getInstance();
+		owpGui = OwpGui.getInstance();
+		owmGui = OwmGui.getInstance();
+		owmController = OfferWithManagerController.getInstance();
+		owpController = OfferWithPlayerController.getInstance();
 	}
 	
 	public int managerGuiMainMenu(Manager manager) {
 		this.manager = manager;
+		this.owmBox.clear();
 		int choice;
 		do {
 			System.out.println("""
@@ -41,7 +59,8 @@ public class ManagerGui {
 					                           1. Kendi kulübümü görüntüle
 					                           2. Diğer kulüpleri görüntüle
 					                           3. Transfer Teklifi Yap
-					                           4. Transfer Tekliflerini Görüntüle
+					                           4. Menajerden Gelen Transfer Tekliflerini Görüntüle
+					                           5. Futbolcudan Gelen Transfer Tekliflerini Görüntüle
 					                           0. Hesaptan Çık
 					                          -1. Çıkış
 					                           """);
@@ -53,6 +72,7 @@ public class ManagerGui {
 			}
 			choice = menuOptions(choice, manager);
 		} while (choice != -1);
+		this.owmBox.clear();
 		return choice;
 	}
 	
@@ -69,6 +89,12 @@ public class ManagerGui {
 				optPlayer.ifPresent(this::makeOfferRequest);
 				break;
 			case 4:
+				showOwmBox();
+				chooseFromOwmBox();
+				break;
+			case 5:
+				showOwpBox();
+				chooseFromOwpBox();
 				break;
 			case -1:
 				System.out.println("Çıkış Yapılıyor...");
@@ -82,11 +108,48 @@ public class ManagerGui {
 		return choice;
 	}
 	
+	private void chooseFromOwpBox() {
+		int owpIndex = InputHandler.integerInput("which owp you want to take action on?");
+		try {
+			OfferWithPlayer owp = owpBox.get(owpIndex - 1);
+			owpGui.owpMainMenu(owp);
+		}
+		catch (Exception e) {
+			System.out.println("could not find the owm..." + e.getMessage());
+		}
+	}
+	
+	private void showOwpBox() {
+		if (owpBox.isEmpty()){
+			owpBox = owpController.showOwpBox(manager);
+		}
+		OwpBoxModel.showOwpBox(owpBox);
+	}
+	
+	private void chooseFromOwmBox() {
+		int owmIndex = InputHandler.integerInput("which owm you want to take action on?");
+		try {
+			OfferWithManager owm = owmBox.get(owmIndex - 1);
+			owmGui.owmMainMenu(owm);
+		}
+		catch (Exception e) {
+			System.out.println("could not find the owm..." + e.getMessage());
+		}
+	}
+	
+	
+	private void showOwmBox() {
+		if (owmBox.isEmpty()) {
+			owmBox = owmController.showOwmBox(manager);
+		}
+		OwmBoxModel.showOwmBox(owmBox);
+	}
+	
 	private void makeOfferRequest(Player player) {
-		LocalDate transferDate = InputHandler.localDateInput("Transfer tarihi giriniz");
 		Double transferFee = InputHandler.doubleInput("Enter transfer fee");
-		TransferRequestDto transferRequest = new TransferRequestDto(manager, player, transferFee, transferDate);
-		transferController.makeTransferRequest(transferRequest);
+		OfferWithManagerRequestDto
+				transferRequest = new OfferWithManagerRequestDto(manager, player, transferFee);
+		owmController.makeTransferRequest(transferRequest);
 	}
 	
 }

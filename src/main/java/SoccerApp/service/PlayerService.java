@@ -6,9 +6,8 @@ import SoccerApp.utility.enums.Nationality;
 import SoccerApp.utility.enums.Position;
 
 import java.util.List;
-import java.util.Set;
 
-public class PlayerService extends BaseServices<Player,Long> {
+public class PlayerService extends BaseService<Player,Long> {
 	private static PlayerService instance;
 	private PlayerRepository repository;
 

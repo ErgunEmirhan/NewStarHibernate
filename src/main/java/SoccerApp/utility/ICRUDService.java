@@ -7,6 +7,8 @@ public interface ICRUDService <T,ID>{
 	T save(T entity);
 	Iterable<T> saveAll(Iterable<T> entities);
 	
+	void update(T entity);
+	
 	Boolean deleteById(ID id);
 	
 	Optional<T> findById(ID id);
