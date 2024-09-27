@@ -50,4 +50,15 @@ public class PlayerRepository extends BaseRepository<Player, Long> {
 				query.select(root).where(criteriaBuilder.between(birthDate, earliestBirthDate, latestBirthDate));
 		return getEntityManager().createQuery(finalQuery).getResultList();
 	}
+	
+	public List<Player> findByName(String nameFilter) {
+		CriteriaQuery<Player> query = criteriaBuilder.createQuery(Player.class);
+		Root<Player> root = query.from(Player.class);
+		Expression<String> concat1 = criteriaBuilder.concat(root.get("firstName"), " ");
+		Expression<String> finalConcat = criteriaBuilder.concat(concat1, root.get("lastName"));
+		query.select(root)
+		     .where(criteriaBuilder.like(criteriaBuilder.lower(finalConcat),
+		                                 "%" + nameFilter.toLowerCase() + "%"));
+		return getEntityManager().createQuery(query).getResultList();
+	}
 }

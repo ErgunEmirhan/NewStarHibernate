@@ -43,4 +43,8 @@ public class PlayerService extends BaseServices<Player,Long> {
 	public List<Player> findBetweenAges(int minAge, int maxAge) {
 		return repository.findBetweenAges(minAge, maxAge);
 	}
+	
+	public List<Player> findByName(String nameFilter) {
+		return repository.findByName(nameFilter);
+	}
 }

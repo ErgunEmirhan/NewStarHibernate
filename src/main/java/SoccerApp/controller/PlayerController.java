@@ -74,4 +74,13 @@ public class PlayerController extends BaseController<Player,Long>{
 			return new ArrayList<>();
 		}
 	}
+	
+	public List<Player> findByName(String nameFilter) {
+		try {
+			return service.findByName(nameFilter);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

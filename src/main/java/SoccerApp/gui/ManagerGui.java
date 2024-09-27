@@ -66,7 +66,7 @@ public class ManagerGui {
 				break;
 			case 3:
 				Optional<Player> optPlayer = playerGui.playerGuiMainMenu(manager);
-				optPlayer.ifPresent(this::makeTransferRequest);
+				optPlayer.ifPresent(this::makeOfferRequest);
 				break;
 			case 4:
 				break;
@@ -82,7 +82,7 @@ public class ManagerGui {
 		return choice;
 	}
 	
-	private void makeTransferRequest(Player player) {
+	private void makeOfferRequest(Player player) {
 		LocalDate transferDate = InputHandler.localDateInput("Transfer tarihi giriniz");
 		Double transferFee = InputHandler.doubleInput("Enter transfer fee");
 		TransferRequestDto transferRequest = new TransferRequestDto(manager, player, transferFee, transferDate);
