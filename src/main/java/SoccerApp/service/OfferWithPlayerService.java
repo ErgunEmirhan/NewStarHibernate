@@ -1,8 +1,10 @@
 package SoccerApp.service;
 
+import SoccerApp.dto.request.OfferWithPlayerRequestDto;
 import SoccerApp.entity.Manager;
 import SoccerApp.entity.OfferWithManager;
 import SoccerApp.entity.OfferWithPlayer;
+import SoccerApp.entity.Transfer;
 import SoccerApp.repository.OfferWithPlayerRepository;
 import SoccerApp.utility.ICRUD;
 import SoccerApp.utility.enums.PlayerOfferStatus;
@@ -40,5 +42,35 @@ public class OfferWithPlayerService extends BaseService<OfferWithPlayer, Long> {
 	
 	public List<OfferWithPlayer> showOwpBox(Manager manager) {
 		return repository.findOwpByBuyingManager(manager);
+	}
+	
+	public void acceptOwp(OfferWithPlayer owp) {
+		owp.setStatus(PlayerOfferStatus.ACCEPTED);
+		update(owp);
+		Transfer transfer = Transfer.builder().contractDate(LocalDate.now()).offer(owp).build();
+		TransferService.getInstance().save(transfer);
+	}
+	
+	public void rejectOwp(OfferWithPlayer owp) {
+		owp.setStatus(PlayerOfferStatus.REFUSED);
+		update(owp);
+	}
+	
+	public void counterOffer(OfferWithPlayerRequestDto owpReqDto) {
+		var oldOwp = owpReqDto.getOwp();
+		var newSalary = owpReqDto.getNewSalary();
+		OfferWithPlayer newOwp =
+				OfferWithPlayer.builder().offerDate(LocalDate.now()).offerWithManager(oldOwp.getOfferWithManager())
+				               .offeredSalary(newSalary).contractEndDate(oldOwp.getContractEndDate()).build();
+		if (oldOwp.getStatus() == PlayerOfferStatus.PLAYER_OFFER) {
+			oldOwp.setStatus(PlayerOfferStatus.COUNTERED_PLAYER_OFFER);
+			newOwp.setStatus(PlayerOfferStatus.BUYER_OFFER);
+		}
+		else{
+			oldOwp.setStatus(PlayerOfferStatus.COUNTERED_BUYER_OFFER);
+			newOwp.setStatus(PlayerOfferStatus.PLAYER_OFFER);
+		}
+		update(oldOwp);
+		save(newOwp);
 	}
 }

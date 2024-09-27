@@ -1,5 +1,6 @@
 package SoccerApp.controller;
 
+import SoccerApp.dto.request.OfferWithPlayerRequestDto;
 import SoccerApp.entity.Manager;
 import SoccerApp.entity.OfferWithPlayer;
 import SoccerApp.repository.OfferWithPlayerRepository;
@@ -32,6 +33,33 @@ public class OfferWithPlayerController extends BaseController<OfferWithPlayer, L
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 			return new ArrayList<>();
+		}
+	}
+	
+	public void acceptOwp(OfferWithPlayer owp) {
+		try{
+			service.acceptOwp(owp);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void rejectOwp(OfferWithPlayer owp) {
+		try{
+			service.rejectOwp(owp);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void counterOffer(OfferWithPlayerRequestDto owpReqDto) {
+		try{
+			service.counterOffer(owpReqDto);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 }

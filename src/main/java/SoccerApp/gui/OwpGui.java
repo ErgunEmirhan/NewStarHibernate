@@ -3,6 +3,7 @@ package SoccerApp.gui;
 import SoccerApp.controller.OfferWithPlayerController;
 import SoccerApp.entity.OfferWithPlayer;
 import SoccerApp.utility.InputHandler;
+import SoccerApp.utility.PlayerOfferHandler;
 import SoccerApp.utility.enums.PlayerOfferStatus;
 
 public class OwpGui {
@@ -31,6 +32,7 @@ public class OwpGui {
 			System.out.println("0. Go back");
 			choice = InputHandler.integerInput();
 			owpMainMenuOptions(choice);
+			PlayerOfferHandler.handleOwp(owp);
 		}while(choice != 0);
 	}
 	
