@@ -20,12 +20,9 @@ import java.util.Optional;
 public class Runner {
 	public static void main(String[] args) {
 		EntityManagerFactory emf= Persistence.createEntityManagerFactory("pu_hibernate");
-		CreateDemoPlayerData createDemoPlayerData=new CreateDemoPlayerData();
-		createDemoPlayerData.createDemoPlayerData();
-		new CreateDemoClubData().createDemoClubData();
-		new CreateDemoManagerData().createDemoManagerData();
-		new CreateDemoStadiumData().createDemoStadiumData();
-		new CreateDemoRefereeData().createDemoRefereeData();
+		
+		ForeignKeyOrganizer.clubsAndPlayers();
+		
 		//Account account= Account.builder().username("harun").password("123123").build();
 		//Manager manager=Manager.builder().account(account).build();
 

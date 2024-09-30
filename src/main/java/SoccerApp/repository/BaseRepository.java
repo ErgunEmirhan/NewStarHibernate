@@ -70,6 +70,29 @@ public class BaseRepository<T, ID> implements ICRUD<T, ID> {
 		}
 	}
 	
+	@Override
+	public void updateAll(Iterable<T> entities) {
+		EntityManager em = getEntityManager();
+		EntityTransaction tx = null;
+		try {
+			tx = em.getTransaction();
+			tx.begin();
+			for (T entity: entities){
+				em.merge(entity);
+			}
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+			System.out.println("Update metodunda hata..."+e.getMessage());
+		}
+		finally {
+			em.close();
+		}
+	}
+	
 	
 	@Override
 	public Iterable<T> saveAll(Iterable<T> entities) {
@@ -198,4 +221,5 @@ public class BaseRepository<T, ID> implements ICRUD<T, ID> {
 			em.close();
 		}
 	}
+	
 }

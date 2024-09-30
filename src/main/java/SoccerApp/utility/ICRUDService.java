@@ -9,6 +9,8 @@ public interface ICRUDService <T,ID>{
 	
 	void update(T entity);
 	
+	void updateAll(Iterable<T> entities);
+	
 	Boolean deleteById(ID id);
 	
 	Optional<T> findById(ID id);

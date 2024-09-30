@@ -30,6 +30,11 @@ public class BaseService<T,ID> implements ICRUDService<T,ID> {
 	}
 	
 	@Override
+	public void updateAll(Iterable<T> entities) {
+		repository.updateAll(entities);
+	}
+	
+	@Override
 	public Boolean deleteById(ID id) {
 		return repository.deleteById(id);
 	}

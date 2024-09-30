@@ -10,6 +10,8 @@ public interface ICRUD<T, ID> {
 	
 	void update(T entity);
 	
+	void updateAll(Iterable<T> entities);
+	
 	Iterable<T> saveAll(Iterable<T> entities);
 	
 	Boolean deleteById(ID id);
