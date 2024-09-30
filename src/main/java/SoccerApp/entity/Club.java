@@ -26,24 +26,24 @@ public class Club extends BaseEntity {
 	@Column(name = "foundationyear")
 	private Integer foundationYear;
 	
-	@Column(name = "stadiumid")
-	private Long stadiumId;
+	@ManyToOne
+	private Stadium stadium;
 	
 	@Column(name = "stadiumname")
 	private String stadiumName;
 	
 	private String chairman;
 	
-	private String budget;
+	private Double budget;
 	
 	@Column(name = "wagebill")
-	private String wageBill;
+	private Double wageBill;
 	
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private Manager manager;
 	
 	@Override
 	public String toString() {
-		return "Club{" + "id=" + getId() + ", name='" + getName() + '\'' + ", foundationYear=" + getFoundationYear() + ", stadiumId=" + getStadiumId() + ", stadiumName='" + getStadiumName() + '\'' + ", chairman='" + getChairman() + '\'' + ", budget='" + getBudget() + '\'' + ", wageBill='" + getWageBill() + '\'' + ", manager=" + getManager() + ", state=" + getState() + '}';
+		return "Club{" + "id=" + getId() + ", name='" + getName() + '\'' + ", foundationYear=" + getFoundationYear() + ", stadiumId=" + getStadium() + ", stadiumName='" + getStadiumName() + '\'' + ", chairman='" + getChairman() + '\'' + ", budget='" + getBudget() + '\'' + ", wageBill='" + getWageBill() + '\'' + ", manager=" + getManager() + ", state=" + getState() + '}';
 	}
 }

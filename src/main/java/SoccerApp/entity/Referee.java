@@ -1,5 +1,6 @@
 package SoccerApp.entity;
 
+import SoccerApp.utility.enums.Kokart;
 import eski.util.enums.EKokart;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,5 +21,5 @@ public class Referee extends Person{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Enumerated(EnumType.STRING)
-	private EKokart kokart;
+	private Kokart kokart;
 }

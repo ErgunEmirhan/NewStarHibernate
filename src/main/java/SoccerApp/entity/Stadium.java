@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
@@ -19,4 +21,6 @@ public class Stadium extends BaseEntity {
 	private Long id;
 	private String name;
 	private Integer capacity;
+	@OneToMany
+	private List<Club> clubList;
 }

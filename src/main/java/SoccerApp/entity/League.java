@@ -25,15 +25,14 @@ public class League extends BaseEntity{
 	private Long id;
 	private String name;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@Column(name = "clubidlist")
-	private Set<Club> clubIDList;
+	private Set<Club> clubs;
 	private String season;
 	@Enumerated(EnumType.STRING)
 	private Region region;
 	@Enumerated(EnumType.STRING)
 	private Division division;
-	@Column(name = "leaguemaxteam")
-	private Byte MAX_LEAGUE_TEAM_NUMBER;
+	@Column(name = "teamcount")
+	private Byte teamCount;
 	@Column(name = "startdate")
 	private LocalDate startDate;
 	@Column(name = "enddate")

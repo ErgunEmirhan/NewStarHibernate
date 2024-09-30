@@ -15,6 +15,9 @@
         <class>SoccerApp.entity.Player</class>
         <class>SoccerApp.entity.LineUp</class>
         <class>SoccerApp.entity.Account</class>
+        <class>SoccerApp.entity.OfferWithPlayer</class>
+        <class>SoccerApp.entity.OfferWithManager</class>
+        <class>SoccerApp.entity.Transfer</class>
 
 
         <properties>
@@ -40,7 +43,7 @@
                       value="true"/>
 
             <property name="hibernate.hbm2ddl.auto"
-                      value="create" />
+                      value="update" />
             <!--    create,create-drop,update,validate değerlerini alabilir.        -->
 
         </properties>

@@ -82,5 +82,6 @@ public class PlayerController extends BaseController<Player,Long>{
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		return new ArrayList<>();
 	}
 }

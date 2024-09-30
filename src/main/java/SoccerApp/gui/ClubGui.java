@@ -86,6 +86,7 @@ public class ClubGui {
 		}
 	}
 	
+	
 	private void findAllClubs() {
 		List<Club> optListedClubs = clubController.findAll();
 		listedClubs = optListedClubs;

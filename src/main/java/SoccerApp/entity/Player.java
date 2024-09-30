@@ -16,8 +16,7 @@ import java.time.LocalDate;
 @SuperBuilder
 @Data
 @Entity
-@Table(name = "tblplayer",
-uniqueConstraints = @UniqueConstraint(columnNames = {"jerseynumber","club_id"}))
+@Table(name = "tblplayer")
 public class Player extends Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +29,7 @@ public class Player extends Person {
 	private Position position;
 	private int rating;
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(nullable = true)
 	private Club club;
 	@Column(name = "contractenddate")
 	private LocalDate contractEndDate;
