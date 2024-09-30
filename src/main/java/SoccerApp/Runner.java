@@ -21,8 +21,6 @@ public class Runner {
 	public static void main(String[] args) {
 		EntityManagerFactory emf= Persistence.createEntityManagerFactory("pu_hibernate");
 		
-		ForeignKeyOrganizer.clubsAndPlayers();
-		
 		//Account account= Account.builder().username("harun").password("123123").build();
 		//Manager manager=Manager.builder().account(account).build();
 

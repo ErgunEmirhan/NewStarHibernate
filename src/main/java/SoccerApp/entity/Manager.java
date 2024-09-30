@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @SuperBuilder
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(exclude = {"club"})
 @Entity
 @Table(name = "tblmanager")
 public class Manager extends Person{
@@ -24,7 +24,11 @@ public class Manager extends Person{
 	private Club club;
 	@Column(name = "contractenddate")
 	private LocalDate contractEndDate;
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.MERGE)
 	Account account;
 	
+	@Override
+	public String toString() {
+		return "Manager{" + "id=" + getId()  + ", contractEndDate=" + getContractEndDate() + ", account=" + getAccount().getUsername() + '}';
+	}
 }

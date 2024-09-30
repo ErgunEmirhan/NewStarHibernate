@@ -1,10 +1,7 @@
 package SoccerApp.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Set;
@@ -13,6 +10,7 @@ import java.util.Set;
 @AllArgsConstructor
 @SuperBuilder
 @Data
+@EqualsAndHashCode(exclude = {"manager"})
 @Entity
 @Table(name = "tblclub")
 public class Club extends BaseEntity {
@@ -44,6 +42,6 @@ public class Club extends BaseEntity {
 	
 	@Override
 	public String toString() {
-		return "Club{" + "id=" + getId() + ", name='" + getName() + '\'' + ", foundationYear=" + getFoundationYear() + ", stadiumId=" + getStadium() + ", stadiumName='" + getStadiumName() + '\'' + ", chairman='" + getChairman() + '\'' + ", budget='" + getBudget() + '\'' + ", wageBill='" + getWageBill() + '\'' + ", manager=" + getManager() + ", state=" + getState() + '}';
+		return "Club{" + "id=" + getId() + ", name='" + getName() + '\'' + ", foundationYear=" + getFoundationYear() + ", stadiumId=" + getStadium() + ", stadiumName='" + getStadiumName() + '\'' + ", chairman='" + getChairman() + '\'' + ", budget='" + getBudget() + '\'' + ", wageBill='" + getWageBill() + '\'' + ", state=" + getState() + '}';
 	}
 }
