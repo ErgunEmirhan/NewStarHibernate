@@ -3,16 +3,16 @@ package SoccerApp.gui;
 import SoccerApp.controller.ClubController;
 import SoccerApp.controller.LeagueController;
 import SoccerApp.entity.mainEntity.Club;
-import SoccerApp.entity.combinedEntity.League;
+import SoccerApp.entity.mainEntity.League;
 import SoccerApp.model.ClubsListedModel;
 import SoccerApp.model.LeagueModel;
 import SoccerApp.utility.InputHandler;
+import SoccerApp.utility.MatchArrangeAlgoritm;
 import SoccerApp.utility.enums.Division;
 import SoccerApp.utility.enums.Region;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class LeagueGui {
 	private static LeagueGui instance;
@@ -100,7 +100,13 @@ public class LeagueGui {
 			return;
 		}
 		
-		
+		arrangeMatches(league);
+	}
+	
+	private void arrangeMatches(League league) {
+		LocalDate startDate = league.getStartDate();
+		List<Club> clubs = league.getClubs().stream().toList();
+		var fixture = MatchArrangeAlgoritm.matchArrangeAlgorithm(clubs, startDate);
 	}
 	
 	private Optional<League> findLeague() {

@@ -1,6 +1,6 @@
 package SoccerApp.controller;
 
-import SoccerApp.entity.combinedEntity.League;
+import SoccerApp.entity.mainEntity.League;
 import SoccerApp.service.LeagueService;
 
 public class LeagueController extends BaseController<League,Long> {

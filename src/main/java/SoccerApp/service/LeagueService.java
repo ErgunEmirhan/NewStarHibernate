@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.combinedEntity.League;
+import SoccerApp.entity.mainEntity.League;
 import SoccerApp.repository.LeagueRepository;
 
 public class LeagueService extends BaseService<League,Long> {

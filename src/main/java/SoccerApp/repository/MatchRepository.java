@@ -1,6 +1,6 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.combinedEntity.Match;
+import SoccerApp.entity.mainEntity.Match;
 
 public class MatchRepository extends BaseRepository<Match, Long> {
 	private static MatchRepository instance;

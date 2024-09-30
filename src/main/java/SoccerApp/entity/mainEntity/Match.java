@@ -1,9 +1,6 @@
-package SoccerApp.entity.combinedEntity;
+package SoccerApp.entity.mainEntity;
 
 import SoccerApp.entity.abstractEntity.BaseEntity;
-import SoccerApp.entity.mainEntity.Club;
-import SoccerApp.entity.mainEntity.Referee;
-import SoccerApp.entity.mainEntity.Stadium;
 import SoccerApp.utility.enums.MatchType;
 import SoccerApp.utility.enums.WeatherCondition;
 import jakarta.persistence.*;
@@ -49,4 +46,6 @@ public class Match extends BaseEntity {
 	private Club away;
 	@Column(name = "seasonweek")
 	private Byte currentWeekofSeason;
+	@ManyToOne
+	private League league;
 }

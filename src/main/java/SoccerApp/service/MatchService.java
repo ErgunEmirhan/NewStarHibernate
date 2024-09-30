@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.combinedEntity.Match;
+import SoccerApp.entity.mainEntity.Match;
 import SoccerApp.repository.MatchRepository;
 
 public class MatchService extends BaseService<Match,Long> {

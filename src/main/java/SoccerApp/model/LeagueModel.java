@@ -1,6 +1,6 @@
 package SoccerApp.model;
 
-import SoccerApp.entity.combinedEntity.League;
+import SoccerApp.entity.mainEntity.League;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.combinedEntity.League;
+import SoccerApp.entity.mainEntity.League;
 
 public class LeagueRepository extends BaseRepository<League, Long> {
 	private static LeagueRepository instance;

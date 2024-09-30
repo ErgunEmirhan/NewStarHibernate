@@ -2,6 +2,7 @@ package SoccerApp.entity.combinedEntity;
 
 import SoccerApp.entity.abstractEntity.BaseEntity;
 import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.mainEntity.League;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

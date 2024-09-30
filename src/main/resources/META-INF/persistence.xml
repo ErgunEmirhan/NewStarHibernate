@@ -9,9 +9,9 @@
         <class>SoccerApp.entity.mainEntity.Club</class>
         <class>SoccerApp.entity.mainEntity.Manager</class>
         <class>SoccerApp.entity.mainEntity.Referee</class>
-        <class>SoccerApp.entity.combinedEntity.League</class>
+        <class>SoccerApp.entity.mainEntity.League</class>
         <class>SoccerApp.entity.combinedEntity.MatchStatistics</class>
-        <class>SoccerApp.entity.combinedEntity.Match</class>
+        <class>SoccerApp.entity.mainEntity.Match</class>
         <class>SoccerApp.entity.mainEntity.Player</class>
         <class>SoccerApp.entity.combinedEntity.LineUp</class>
         <class>SoccerApp.entity.combinedEntity.Account</class>
