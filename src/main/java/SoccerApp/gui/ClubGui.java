@@ -1,18 +1,17 @@
 package SoccerApp.gui;
 
 import SoccerApp.controller.ClubController;
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.model.ClubDetailsModel;
 import SoccerApp.model.ClubSquadModel;
 import SoccerApp.model.ClubsListedModel;
 import SoccerApp.model.PlayerDetailedModel;
 import eski.entities.Kulup;
-import SoccerApp.entity.Club;
+import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.utility.InputHandler;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 public class ClubGui {
 	private static ClubGui instance;

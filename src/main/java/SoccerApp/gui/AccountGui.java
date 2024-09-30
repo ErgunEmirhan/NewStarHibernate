@@ -1,9 +1,8 @@
 package SoccerApp.gui;
 
 import SoccerApp.controller.ManagerController;
-import SoccerApp.entity.Account;
-import SoccerApp.entity.Manager;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import SoccerApp.entity.combinedEntity.Account;
+import SoccerApp.entity.mainEntity.Manager;
 
 import java.util.Optional;
 import java.util.Scanner;

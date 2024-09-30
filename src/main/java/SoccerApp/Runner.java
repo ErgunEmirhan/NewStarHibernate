@@ -1,21 +1,7 @@
 package SoccerApp;
 
-import SoccerApp.controller.ClubController;
-import SoccerApp.entity.Account;
-import SoccerApp.entity.Club;
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.Player;
-import SoccerApp.gui.AccountGui;
-import SoccerApp.model.ClubSquadModel;
-import SoccerApp.model.PlayerDetailedModel;
-import SoccerApp.repository.ManagerRepository;
-import SoccerApp.utility.HandleMockData.*;
-import SoccerApp.utility.enums.Position;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-
-import java.util.List;
-import java.util.Optional;
 
 public class Runner {
 	public static void main(String[] args) {

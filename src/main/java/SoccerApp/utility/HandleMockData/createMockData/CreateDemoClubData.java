@@ -1,10 +1,8 @@
-package SoccerApp.utility.HandleMockData;
+package SoccerApp.utility.HandleMockData.createMockData;
 
 import SoccerApp.controller.ClubController;
-import SoccerApp.entity.Club;
-import SoccerApp.entity.Stadium;
+import SoccerApp.entity.mainEntity.Club;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

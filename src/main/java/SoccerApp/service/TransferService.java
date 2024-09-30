@@ -1,11 +1,7 @@
 package SoccerApp.service;
 
-import SoccerApp.dto.request.OfferWithManagerRequestDto;
-import SoccerApp.entity.*;
+import SoccerApp.entity.combinedEntity.Transfer;
 import SoccerApp.repository.TransferRepository;
-import SoccerApp.utility.enums.ManagerOfferStatus;
-
-import java.time.LocalDate;
 
 public class TransferService extends BaseService<Transfer,Long> {
 	private static TransferService instance;

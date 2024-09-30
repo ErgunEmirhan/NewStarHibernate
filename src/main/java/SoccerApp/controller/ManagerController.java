@@ -1,6 +1,6 @@
 package SoccerApp.controller;
 
-import SoccerApp.entity.Manager;
+import SoccerApp.entity.mainEntity.Manager;
 import SoccerApp.service.ManagerService;
 import jakarta.persistence.NoResultException;
 

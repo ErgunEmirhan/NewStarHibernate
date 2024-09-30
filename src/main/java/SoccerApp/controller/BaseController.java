@@ -1,13 +1,14 @@
 package SoccerApp.controller;
 
-import SoccerApp.utility.ICRUD;
-import SoccerApp.utility.ICRUDService;
+import SoccerApp.utility.icrud.ICRUD;
+import SoccerApp.utility.icrud.ICRUDController;
+import SoccerApp.utility.icrud.ICRUDService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class BaseController <T,ID> implements ICRUD<T,ID> {
+public class BaseController <T,ID> implements ICRUDController<T,ID> {
 	private final ICRUDService<T,ID> service;
 	public BaseController(ICRUDService<T,ID> service) {
 		this.service = service;

@@ -1,6 +1,6 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.LineUp;
+import SoccerApp.entity.combinedEntity.LineUp;
 
 public class LineUpRepository extends BaseRepository<LineUp, Long> {
 	private static LineUpRepository instance;

@@ -1,6 +1,6 @@
 package SoccerApp.controller;
 
-import SoccerApp.entity.Referee;
+import SoccerApp.entity.mainEntity.Referee;
 import SoccerApp.service.RefereeService;
 
 public class RefereeController extends BaseController<Referee,Long> {

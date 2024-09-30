@@ -2,8 +2,8 @@ package SoccerApp.utility;
 
 import SoccerApp.controller.OfferWithPlayerController;
 import SoccerApp.dto.request.OfferWithPlayerRequestDto;
-import SoccerApp.entity.OfferWithPlayer;
-import SoccerApp.entity.Player;
+import SoccerApp.entity.combinedEntity.OfferWithPlayer;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.utility.enums.PlayerOfferStatus;
 
 import java.util.Random;

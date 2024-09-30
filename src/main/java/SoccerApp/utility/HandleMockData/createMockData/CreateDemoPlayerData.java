@@ -1,8 +1,7 @@
-package SoccerApp.utility.HandleMockData;
+package SoccerApp.utility.HandleMockData.createMockData;
 
 import SoccerApp.controller.PlayerController;
-import SoccerApp.entity.Player;
-import SoccerApp.repository.PlayerRepository;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.utility.enums.Nationality;
 import SoccerApp.utility.enums.Position;
 

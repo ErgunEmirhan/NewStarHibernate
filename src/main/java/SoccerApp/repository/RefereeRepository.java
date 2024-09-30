@@ -1,6 +1,6 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.Referee;
+import SoccerApp.entity.mainEntity.Referee;
 
 public class RefereeRepository extends BaseRepository<Referee, Long> {
 	private static RefereeRepository instance;

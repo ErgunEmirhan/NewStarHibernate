@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.repository.PlayerRepository;
 import SoccerApp.utility.enums.Nationality;
 import SoccerApp.utility.enums.Position;

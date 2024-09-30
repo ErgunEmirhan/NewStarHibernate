@@ -1,10 +1,13 @@
-package SoccerApp.entity;
+package SoccerApp.entity.combinedEntity;
 
+import SoccerApp.entity.abstractEntity.BaseEntity;
+import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.mainEntity.Referee;
+import SoccerApp.entity.mainEntity.Stadium;
 import SoccerApp.utility.enums.MatchType;
 import SoccerApp.utility.enums.WeatherCondition;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -20,7 +23,7 @@ import java.util.Set;
 @Entity
 @Table(name = "tblmatch")
 @Check(name = "home_away_check", constraints = "home_id != away_id")
-public class Match extends BaseEntity{
+public class Match extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

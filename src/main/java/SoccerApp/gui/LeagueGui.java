@@ -2,9 +2,10 @@ package SoccerApp.gui;
 
 import SoccerApp.controller.ClubController;
 import SoccerApp.controller.LeagueController;
-import SoccerApp.entity.Club;
-import SoccerApp.entity.League;
+import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.combinedEntity.League;
 import SoccerApp.model.ClubsListedModel;
+import SoccerApp.model.LeagueModel;
 import SoccerApp.utility.InputHandler;
 import SoccerApp.utility.enums.Division;
 import SoccerApp.utility.enums.Region;
@@ -67,7 +68,7 @@ public class LeagueGui {
 				showParticipantClubsInTheLeague();
 				break;
 			case 4:
-//				createFixture();
+				createFixture();
 				break;
 			case 5:
 				
@@ -86,6 +87,43 @@ public class LeagueGui {
 		return choice;
 	}
 	
+	private void createFixture() {
+		Optional<League> optLeague = findLeague();
+		if (optLeague.isEmpty()){
+			System.out.println("No such league");
+			return;
+		}
+		
+		League league = optLeague.get();
+		if(league.getClubs().size() < league.getTeamCount()){
+			System.out.println("Not enough participant clubs");
+			return;
+		}
+		
+		
+	}
+	
+	private Optional<League> findLeague() {
+		showLeagues();
+		int leagueIndex = InputHandler.integerInput("For which league do you want to create fixture> ");
+		try{
+			League league = listedLeagues.get(leagueIndex);
+			return Optional.of(league);
+		}
+		catch (Exception e){
+			System.out.println("Girdi gecersiz x_x" + e.getMessage());
+			return Optional.empty();
+		}
+	}
+	
+	private void showLeagues() {
+		if (listedLeagues.isEmpty()) {
+			List<League> legos = leagueController.findAll();
+			listedLeagues = legos;
+		}
+		LeagueModel.showLeagues(listedLeagues);
+	}
+	
 	private void showParticipantClubsInTheLeague() {
 		Optional<League> optLeague = findLeague();
 		if (optLeague.isPresent()){
@@ -96,15 +134,7 @@ public class LeagueGui {
 	}
 	
 	
-	private Optional<League> findLeague() {
-		AtomicInteger leagueCount=new AtomicInteger(1);
-		listedLeagues = leagueController.findAll();
-		listedLeagues.forEach(league -> {
-			System.out.println(leagueCount.getAndIncrement() + ". " + league.getName());
-		});
-		int choosenLeague = InputHandler.integerInput("Please choose a league");
-		return Optional.of(listedLeagues.get(choosenLeague - 1));
-	}
+	
 	
 	private void addClubToLeague(){
 		Optional<League> optLeague = findLeague();

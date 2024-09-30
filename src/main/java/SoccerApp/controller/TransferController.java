@@ -1,7 +1,6 @@
 package SoccerApp.controller;
 
-import SoccerApp.dto.request.OfferWithManagerRequestDto;
-import SoccerApp.entity.Transfer;
+import SoccerApp.entity.combinedEntity.Transfer;
 import SoccerApp.service.TransferService;
 
 public class TransferController extends BaseController<Transfer,Long> {

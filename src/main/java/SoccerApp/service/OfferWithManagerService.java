@@ -1,13 +1,11 @@
 package SoccerApp.service;
 
-import SoccerApp.controller.OfferWithManagerController;
 import SoccerApp.dto.request.OfferWithManagerRequestDto;
-import SoccerApp.entity.Club;
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.OfferWithManager;
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.combinedEntity.OfferWithManager;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.repository.OfferWithManagerRepository;
-import SoccerApp.utility.ICRUD;
 import SoccerApp.utility.enums.ManagerOfferStatus;
 
 import java.time.LocalDate;

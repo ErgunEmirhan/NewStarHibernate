@@ -1,6 +1,6 @@
 package SoccerApp.controller;
 
-import SoccerApp.entity.LineUp;
+import SoccerApp.entity.combinedEntity.LineUp;
 import SoccerApp.service.LineUpService;
 
 public class LineUpController extends BaseController<LineUp,Long>{

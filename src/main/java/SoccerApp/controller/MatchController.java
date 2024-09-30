@@ -1,6 +1,6 @@
 package SoccerApp.controller;
 
-import SoccerApp.entity.Match;
+import SoccerApp.entity.combinedEntity.Match;
 import SoccerApp.service.MatchService;
 
 public class MatchController extends BaseController<Match,Long>{

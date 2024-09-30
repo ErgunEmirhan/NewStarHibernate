@@ -1,7 +1,7 @@
 package SoccerApp.dto.request;
 
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.mainEntity.Player;
 
 public class OfferWithManagerRequestDto {
 	private Manager manager;

@@ -1,8 +1,8 @@
 package SoccerApp.gui;
 
 import SoccerApp.controller.PlayerController;
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.model.PlayerDetailedModel;
 import SoccerApp.utility.InputHandler;
 import SoccerApp.utility.enums.Nationality;

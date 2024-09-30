@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.Stadium;
+import SoccerApp.entity.mainEntity.Stadium;
 import SoccerApp.repository.StadiumRepository;
 
 public class StadiumService extends BaseService<Stadium,Long> {

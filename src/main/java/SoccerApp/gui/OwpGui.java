@@ -1,7 +1,7 @@
 package SoccerApp.gui;
 
 import SoccerApp.controller.OfferWithPlayerController;
-import SoccerApp.entity.OfferWithPlayer;
+import SoccerApp.entity.combinedEntity.OfferWithPlayer;
 import SoccerApp.utility.InputHandler;
 import SoccerApp.utility.PlayerOfferHandler;
 import SoccerApp.utility.enums.PlayerOfferStatus;

@@ -1,4 +1,4 @@
-package SoccerApp.entity;
+package SoccerApp.entity.combinedEntity;
 
 import jakarta.persistence.*;
 import lombok.*;

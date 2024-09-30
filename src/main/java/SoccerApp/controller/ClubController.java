@@ -1,6 +1,6 @@
 package SoccerApp.controller;
 
-import SoccerApp.entity.Club;
+import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.service.ClubService;
 
 import java.util.ArrayList;

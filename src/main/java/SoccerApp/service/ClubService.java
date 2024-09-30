@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.Club;
+import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.repository.ClubRepository;
 
 import java.util.List;

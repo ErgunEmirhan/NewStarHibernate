@@ -1,7 +1,7 @@
-package SoccerApp.utility.HandleMockData;
+package SoccerApp.utility.HandleMockData.createMockData;
 
 import SoccerApp.controller.StadiumController;
-import SoccerApp.entity.Stadium;
+import SoccerApp.entity.mainEntity.Stadium;
 
 import java.util.ArrayList;
 import java.util.List;

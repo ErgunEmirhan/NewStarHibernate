@@ -1,14 +1,12 @@
 package SoccerApp.controller;
 
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.service.PlayerService;
 import SoccerApp.utility.enums.Nationality;
 import SoccerApp.utility.enums.Position;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class PlayerController extends BaseController<Player,Long>{
 	private static PlayerController instance;

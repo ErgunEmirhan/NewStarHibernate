@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.MatchStatistics;
+import SoccerApp.entity.combinedEntity.MatchStatistics;
 import SoccerApp.repository.MatchStatisticsRepository;
 
 public class MatchStatisticsService extends BaseService<MatchStatistics,Long> {

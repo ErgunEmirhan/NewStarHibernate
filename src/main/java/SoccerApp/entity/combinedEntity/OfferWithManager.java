@@ -1,5 +1,9 @@
-package SoccerApp.entity;
+package SoccerApp.entity.combinedEntity;
 
+import SoccerApp.entity.abstractEntity.BaseEntity;
+import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.mainEntity.Player;
 import SoccerApp.utility.enums.ManagerOfferStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,5 +1,6 @@
-package SoccerApp.entity;
+package SoccerApp.entity.combinedEntity;
 
+import SoccerApp.entity.abstractEntity.BaseEntity;
 import SoccerApp.utility.enums.PlayerOfferStatus;
 
 import java.time.LocalDate;
@@ -13,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @Entity
 @Table(name = "tblofferwithplayer")
-public class OfferWithPlayer extends BaseEntity{
+public class OfferWithPlayer extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

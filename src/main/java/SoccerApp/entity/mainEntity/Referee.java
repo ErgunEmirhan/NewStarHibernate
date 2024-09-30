@@ -1,7 +1,7 @@
-package SoccerApp.entity;
+package SoccerApp.entity.mainEntity;
 
+import SoccerApp.entity.abstractEntity.Person;
 import SoccerApp.utility.enums.Kokart;
-import eski.util.enums.EKokart;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "tblreferee")
-public class Referee extends Person{
+public class Referee extends Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

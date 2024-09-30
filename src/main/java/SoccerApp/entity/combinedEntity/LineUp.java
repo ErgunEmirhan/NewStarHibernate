@@ -1,5 +1,8 @@
-package SoccerApp.entity;
+package SoccerApp.entity.combinedEntity;
 
+import SoccerApp.entity.abstractEntity.BaseEntity;
+import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.mainEntity.Player;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -13,7 +16,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "tbllineup")
-public class LineUp extends BaseEntity{
+public class LineUp extends BaseEntity {
 	@Id
 	@ManyToOne
 	private Club club;

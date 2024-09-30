@@ -1,6 +1,6 @@
 package SoccerApp.model;
 
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Player;
 
 public class PlayerDetailedModel {
 	public static void showDetails(Player player){

@@ -1,10 +1,9 @@
-package SoccerApp.utility.HandleMockData;
+package SoccerApp.utility.HandleMockData.createMockData;
 
 import SoccerApp.controller.RefereeController;
-import SoccerApp.entity.Referee;
+import SoccerApp.entity.mainEntity.Referee;
 import SoccerApp.utility.enums.Kokart;
 import SoccerApp.utility.enums.Nationality;
-import eski.util.enums.EKokart;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

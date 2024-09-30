@@ -1,7 +1,7 @@
-package SoccerApp.utility.HandleMockData;
+package SoccerApp.utility.HandleMockData.createMockData;
 
 import SoccerApp.controller.ManagerController;
-import SoccerApp.entity.Manager;
+import SoccerApp.entity.mainEntity.Manager;
 import SoccerApp.utility.enums.Nationality;
 
 import java.time.LocalDate;

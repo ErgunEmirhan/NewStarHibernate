@@ -1,7 +1,7 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.OfferWithManager;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.combinedEntity.OfferWithManager;
 import SoccerApp.utility.enums.ManagerOfferStatus;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;

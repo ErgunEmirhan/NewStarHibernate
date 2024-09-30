@@ -1,7 +1,7 @@
 package SoccerApp.service;
 
-import SoccerApp.utility.ICRUD;
-import SoccerApp.utility.ICRUDService;
+import SoccerApp.utility.icrud.ICRUD;
+import SoccerApp.utility.icrud.ICRUDService;
 
 import java.util.List;
 import java.util.Optional;

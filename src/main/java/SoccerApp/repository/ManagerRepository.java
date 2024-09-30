@@ -1,7 +1,7 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.Account;
-import SoccerApp.entity.Manager;
+import SoccerApp.entity.combinedEntity.Account;
+import SoccerApp.entity.mainEntity.Manager;
 import SoccerApp.model.ClubDetailsModel;
 import jakarta.persistence.criteria.*;
 

@@ -1,12 +1,10 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Player;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Path;
 import jakarta.persistence.criteria.Root;
-import jakarta.persistence.metamodel.MapAttribute;
-import org.hibernate.metamodel.model.domain.internal.MapAttributeImpl;
 
 import java.time.LocalDate;
 import java.util.List;

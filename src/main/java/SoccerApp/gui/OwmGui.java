@@ -1,8 +1,7 @@
 package SoccerApp.gui;
 
 import SoccerApp.controller.OfferWithManagerController;
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.OfferWithManager;
+import SoccerApp.entity.combinedEntity.OfferWithManager;
 import SoccerApp.utility.InputHandler;
 import SoccerApp.utility.enums.ManagerOfferStatus;
 

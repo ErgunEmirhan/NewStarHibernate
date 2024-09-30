@@ -5,19 +5,19 @@
              version="2.1">
 
     <persistence-unit name="pu_hibernate">
-        <class>SoccerApp.entity.Stadium</class>
-        <class>SoccerApp.entity.Club</class>
-        <class>SoccerApp.entity.Manager</class>
-        <class>SoccerApp.entity.Referee</class>
-        <class>SoccerApp.entity.League</class>
-        <class>SoccerApp.entity.MatchStatistics</class>
-        <class>SoccerApp.entity.Match</class>
-        <class>SoccerApp.entity.Player</class>
-        <class>SoccerApp.entity.LineUp</class>
-        <class>SoccerApp.entity.Account</class>
-        <class>SoccerApp.entity.OfferWithPlayer</class>
-        <class>SoccerApp.entity.OfferWithManager</class>
-        <class>SoccerApp.entity.Transfer</class>
+        <class>SoccerApp.entity.mainEntity.Stadium</class>
+        <class>SoccerApp.entity.mainEntity.Club</class>
+        <class>SoccerApp.entity.mainEntity.Manager</class>
+        <class>SoccerApp.entity.mainEntity.Referee</class>
+        <class>SoccerApp.entity.combinedEntity.League</class>
+        <class>SoccerApp.entity.combinedEntity.MatchStatistics</class>
+        <class>SoccerApp.entity.combinedEntity.Match</class>
+        <class>SoccerApp.entity.mainEntity.Player</class>
+        <class>SoccerApp.entity.combinedEntity.LineUp</class>
+        <class>SoccerApp.entity.combinedEntity.Account</class>
+        <class>SoccerApp.entity.combinedEntity.OfferWithPlayer</class>
+        <class>SoccerApp.entity.combinedEntity.OfferWithManager</class>
+        <class>SoccerApp.entity.combinedEntity.Transfer</class>
 
 
         <properties>

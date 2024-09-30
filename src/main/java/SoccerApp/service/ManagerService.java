@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.Manager;
+import SoccerApp.entity.mainEntity.Manager;
 import SoccerApp.repository.ManagerRepository;
 
 import java.util.Optional;

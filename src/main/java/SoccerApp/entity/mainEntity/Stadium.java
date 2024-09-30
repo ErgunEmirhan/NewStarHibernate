@@ -1,8 +1,8 @@
-package SoccerApp.entity;
+package SoccerApp.entity.mainEntity;
 
+import SoccerApp.entity.abstractEntity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;

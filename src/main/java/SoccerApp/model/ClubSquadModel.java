@@ -1,10 +1,8 @@
 package SoccerApp.model;
 
-import SoccerApp.entity.Club;
-import SoccerApp.entity.Player;
+import SoccerApp.entity.mainEntity.Player;
 
 import java.util.List;
-import java.util.Set;
 
 public class ClubSquadModel {
 	public static void showSquad(List<Player> squad) {

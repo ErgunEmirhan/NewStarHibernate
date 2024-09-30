@@ -1,10 +1,9 @@
-package SoccerApp.utility.HandleMockData;
+package SoccerApp.utility.HandleMockData.createMockData;
 
 import SoccerApp.controller.ManagerController;
-import SoccerApp.entity.Account;
-import SoccerApp.entity.Manager;
+import SoccerApp.entity.combinedEntity.Account;
+import SoccerApp.entity.mainEntity.Manager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CreateDemoAccountData {

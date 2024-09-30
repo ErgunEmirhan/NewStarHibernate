@@ -1,7 +1,7 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.OfferWithPlayer;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.combinedEntity.OfferWithPlayer;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Path;
 import jakarta.persistence.criteria.Root;

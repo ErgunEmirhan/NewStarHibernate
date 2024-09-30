@@ -1,6 +1,6 @@
 package SoccerApp.dto.request;
 
-import SoccerApp.entity.OfferWithPlayer;
+import SoccerApp.entity.combinedEntity.OfferWithPlayer;
 
 public class OfferWithPlayerRequestDto {
 	private OfferWithPlayer owp;

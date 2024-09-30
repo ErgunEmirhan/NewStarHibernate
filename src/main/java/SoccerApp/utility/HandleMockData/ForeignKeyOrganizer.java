@@ -4,10 +4,10 @@ import SoccerApp.controller.ClubController;
 import SoccerApp.controller.ManagerController;
 import SoccerApp.controller.PlayerController;
 import SoccerApp.controller.StadiumController;
-import SoccerApp.entity.Club;
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.Player;
-import SoccerApp.entity.Stadium;
+import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.mainEntity.Player;
+import SoccerApp.entity.mainEntity.Stadium;
 
 import java.util.List;
 

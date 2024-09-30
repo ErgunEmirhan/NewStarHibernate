@@ -1,6 +1,6 @@
 package SoccerApp.service;
 
-import SoccerApp.entity.Referee;
+import SoccerApp.entity.mainEntity.Referee;
 import SoccerApp.repository.RefereeRepository;
 
 public class RefereeService extends BaseService<Referee,Long> {

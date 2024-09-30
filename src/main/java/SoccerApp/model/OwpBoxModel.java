@@ -1,6 +1,6 @@
 package SoccerApp.model;
 
-import SoccerApp.entity.OfferWithPlayer;
+import SoccerApp.entity.combinedEntity.OfferWithPlayer;
 
 import java.util.List;
 

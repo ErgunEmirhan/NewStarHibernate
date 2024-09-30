@@ -1,6 +1,4 @@
-package SoccerApp.utility;
-
-import SoccerApp.entity.Manager;
+package SoccerApp.utility.icrud;
 
 import java.util.List;
 import java.util.Optional;

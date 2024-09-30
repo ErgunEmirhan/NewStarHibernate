@@ -1,13 +1,11 @@
-package SoccerApp.entity;
+package SoccerApp.entity.abstractEntity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.ColumnDefault;
 
 @NoArgsConstructor
 @AllArgsConstructor

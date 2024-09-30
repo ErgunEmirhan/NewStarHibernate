@@ -1,5 +1,7 @@
-package SoccerApp.entity;
+package SoccerApp.entity.mainEntity;
 
+import SoccerApp.entity.combinedEntity.Account;
+import SoccerApp.entity.abstractEntity.Person;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -16,7 +18,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode(exclude = {"club"})
 @Entity
 @Table(name = "tblmanager")
-public class Manager extends Person{
+public class Manager extends Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

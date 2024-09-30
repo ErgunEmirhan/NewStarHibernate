@@ -1,7 +1,6 @@
 package SoccerApp.repository;
 
-import SoccerApp.entity.OfferWithManager;
-import SoccerApp.entity.Transfer;
+import SoccerApp.entity.combinedEntity.Transfer;
 
 public class TransferRepository extends BaseRepository<Transfer,Long> {
 	private static TransferRepository instance;

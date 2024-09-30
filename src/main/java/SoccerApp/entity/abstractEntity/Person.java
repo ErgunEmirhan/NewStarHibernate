@@ -1,4 +1,4 @@
-package SoccerApp.entity;
+package SoccerApp.entity.abstractEntity;
 
 import SoccerApp.utility.enums.Nationality;
 import jakarta.persistence.*;

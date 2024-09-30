@@ -1,7 +1,7 @@
 package SoccerApp.model;
 
-import SoccerApp.entity.Club;
-import SoccerApp.entity.Manager;
+import SoccerApp.entity.mainEntity.Club;
+import SoccerApp.entity.mainEntity.Manager;
 
 public class ClubDetailsModel {
 	public static void showDetails(Club club) {

@@ -1,5 +1,7 @@
-package SoccerApp.entity;
+package SoccerApp.entity.combinedEntity;
 
+import SoccerApp.entity.abstractEntity.BaseEntity;
+import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.utility.enums.Division;
 import SoccerApp.utility.enums.Region;
 import jakarta.persistence.*;
@@ -19,7 +21,7 @@ import java.util.*;
 @EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name = "tblleague")
-public class League extends BaseEntity{
+public class League extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

@@ -1,10 +1,9 @@
 package SoccerApp.controller;
 
 import SoccerApp.dto.request.OfferWithManagerRequestDto;
-import SoccerApp.entity.Manager;
-import SoccerApp.entity.OfferWithManager;
+import SoccerApp.entity.mainEntity.Manager;
+import SoccerApp.entity.combinedEntity.OfferWithManager;
 import SoccerApp.service.OfferWithManagerService;
-import SoccerApp.utility.ICRUDService;
 
 import java.util.ArrayList;
 import java.util.List;
