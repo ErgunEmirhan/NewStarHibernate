@@ -1,14 +1,17 @@
 package SoccerApp.gui;
 
-import eski.NewStarSoccerApp;
-import eski.entities.*;
-import eski.util.enums.EMacStatu;
-import eski.util.enums.EMevki;
 
-import java.util.*;
+import SoccerApp.controller.MatchController;
+import SoccerApp.engine.MatchEngine;
+import SoccerApp.entity.mainEntity.Match;
+import SoccerApp.utility.InputHandler;
+import SoccerApp.utility.LineupArrangeAlgorithm;
+
+import java.util.Optional;
 
 public class MatchGui {
 	private static MatchGui instance;
+	private MatchController controller;
 	
 	public static MatchGui getInstance() {
 		if (instance == null) {
@@ -27,7 +30,7 @@ public class MatchGui {
 				                  0. Geri
 				                  -1. Cikis
 				                  """);
-			choice = NewStarSoccerApp.yapSecim("Seciminiz: ");
+			choice = InputHandler.integerInput();
 			if (choice == 0) break;
 			
 			choice = matchGuiMainMenuOptions(choice);
@@ -39,7 +42,7 @@ public class MatchGui {
 	private int matchGuiMainMenuOptions(int choice) {
 		switch (choice){
 			case 1:
-				play();
+				nextMatch();
 				break;
 			default:
 				System.out.println("what??");
@@ -47,37 +50,26 @@ public class MatchGui {
 		return choice;
 	}
 	
-	private void play(Map<EMevki, List<Futbolcu>> evSahibiKadroIlkOnBir, Map<EMevki, List<Futbolcu>> deplasmanIlkOnBir, Musabaka musabaka, Lig lig) {
-		Random random = new Random();
-		var evSahibiMevkiPuanlari = new HashMap<EMevki, Integer>();
-		var deplasmanMevkiPuanlari = new HashMap<EMevki, Integer>();
-		
-		
-		deplasmanIst.artirBeraberlik();
-		evSahibiIst.artirBeraberlik();
-		
-		evSahibiKadroIlkOnBir.forEach((k, v) -> evSahibiMevkiPuanlari.put(k, v.stream().map(fut -> fut.getYetenekPuani()).reduce(0, (p1, p2) -> p1 + p2)));
-		deplasmanIlkOnBir.forEach((k, v) -> deplasmanMevkiPuanlari.put(k, v.stream().map(fut -> fut.getYetenekPuani()).reduce(0, (p1, p2) -> p1 + p2)));
-		
-		kadroYazdir(evSahibiKulupAdi, deplasmanKulupAdi, evSahibiKadroIlkOnBir, deplasmanIlkOnBir);
-		
-		int maxSure = musabaka.getSure();
-		int sure;
-		EMacStatu status; // ilkStatus
-		for (int i = 0; i < 2; i++) {
-			sure = 0;
-			status = EMacStatu.values()[((random.nextInt(2) + i) % 2) + 4];
-			while (sure < maxSure/2){
-				try {
-					Thread.sleep(100);
-					sure += random.nextInt(3, 6);
-					status = nextStatus(status, evSahibiMevkiPuanlari, deplasmanMevkiPuanlari, evSahibiKadroIlkOnBir, deplasmanIlkOnBir, musabaka, lig);
-				}
-				catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+	private void nextMatch() {
+		Optional<Match> optMatch = findEarliestMatch();
+		if(optMatch.isEmpty()){
+			System.out.println("All matches in the database are already played or is playing.");
+			return;
 		}
+		Match match = optMatch.get();
 		
+		assignLineups(match);
+		
+		MatchEngine.play(match);
 	}
+	
+	private void assignLineups(Match match) {
+		LineupArrangeAlgorithm.assignLineups(match);
+	}
+	
+	private Optional<Match> findEarliestMatch() {
+		return controller.findEarliestMatch();
+	}
+	
+	
 }

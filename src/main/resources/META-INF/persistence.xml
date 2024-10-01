@@ -13,7 +13,6 @@
         <class>SoccerApp.entity.combinedEntity.MatchStatistics</class>
         <class>SoccerApp.entity.mainEntity.Match</class>
         <class>SoccerApp.entity.mainEntity.Player</class>
-        <class>SoccerApp.entity.combinedEntity.LineUp</class>
         <class>SoccerApp.entity.combinedEntity.Account</class>
         <class>SoccerApp.entity.combinedEntity.OfferWithPlayer</class>
         <class>SoccerApp.entity.combinedEntity.OfferWithManager</class>

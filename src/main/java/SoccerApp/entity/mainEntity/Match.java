@@ -1,17 +1,20 @@
 package SoccerApp.entity.mainEntity;
 
 import SoccerApp.entity.abstractEntity.BaseEntity;
+import SoccerApp.utility.enums.MatchStatus;
 import SoccerApp.utility.enums.MatchType;
 import SoccerApp.utility.enums.WeatherCondition;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Check;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -49,4 +52,15 @@ public class Match extends BaseEntity {
 	private Byte currentWeekofSeason;
 	@ManyToOne
 	private League league;
+	@ManyToMany
+	private List<Player> homeLineup;
+	@ManyToMany
+	private List<Player> awayLineup;
+	@Builder.Default
+	private int homeScore = 0;
+	@Builder.Default
+	private int awayScore = 0;
+	@Enumerated(EnumType.STRING)
+	@Builder.Default
+	private MatchStatus status = MatchStatus.NOT_STARTED;
 }

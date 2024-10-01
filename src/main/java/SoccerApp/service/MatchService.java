@@ -7,6 +7,7 @@ import SoccerApp.entity.mainEntity.Match;
 import SoccerApp.repository.MatchRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MatchService extends BaseService<Match,Long> {
 	private static MatchService instance;
@@ -28,5 +29,9 @@ public class MatchService extends BaseService<Match,Long> {
 		List<Match> matches = repository.findByClubAndLeagueId(club, league);
 		return matches;
 		
+	}
+	
+	public Match findEarliestMatch() {
+		return repository.findEarliestMatch();
 	}
 }

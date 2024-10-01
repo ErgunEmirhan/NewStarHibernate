@@ -8,6 +8,7 @@ import SoccerApp.service.MatchService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class MatchController extends BaseController<Match,Long>{
 	private static MatchController instance;
@@ -30,6 +31,16 @@ public class MatchController extends BaseController<Match,Long>{
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 			return new ArrayList<>();
+		}
+	}
+	
+	public Optional<Match> findEarliestMatch() {
+		try{
+			return Optional.of(service.findEarliestMatch());
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+			return Optional.empty();
 		}
 	}
 }
