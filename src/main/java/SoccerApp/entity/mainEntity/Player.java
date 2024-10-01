@@ -6,6 +6,7 @@ import SoccerApp.utility.enums.Position;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @SuperBuilder
 @Data
+@EqualsAndHashCode(exclude = {"club"})
 @Entity
 @Table(name = "tblplayer")
 public class Player extends Person {

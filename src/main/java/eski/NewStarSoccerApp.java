@@ -1,15 +1,14 @@
-package SoccerApp;
+package eski;
 
+
+import SoccerApp.repository.ClubRepository;
 import eski.entities.Musabaka;
 import eski.models.DatabaseModel;
 import eski.modules.KulupMod;
 import eski.modules.LigMod;
 import eski.modules.MenajerMod;
 import eski.modules.MusabakaMod;
-import SoccerApp.repository.ClubRepository;
 import eski.util.GeneratorRex;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -36,40 +35,11 @@ public class NewStarSoccerApp {
 	
 	public static void main(String[] args) {
 		
+		System.out.println("Program başlatılıyor");
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_hibernate");
-		
-		
-		
-		
-		//EntityManager em = emf.createEntityManager();
-		
-		
-		/*System.out.println("Program başlatılıyor");
-		nssApp.baslatVeYurutVerileri();
-		
-		
-		nssApp.zamanGecir();
-		nssApp.otoKayitThread();
 		//TODO menuleri tek bir cati altina topla menu(String menuMsg, Method menuSecenekleri)
-		nssApp.nssMenu();*/
+		nssApp.nssMenu();
 		
-		/*List<Integer> takimIdlerListesi = new ArrayList<>(List.of(10, 25, 47, 130, 33, 44));
-		List<Integer> indexes = new ArrayList<>();
-		Collections.shuffle(takimIdlerListesi);
-		
-		for (int i = 0; i < takimIdlerListesi.size(); i++) {
-			indexes.add(i);
-		}
-		
-		List<Musabaka> fikstur = new ArrayList<>();
-		Musabaka musabaka = new Musabaka();
-		
-		musabaka.setEvSahibiID(String.valueOf(takimIdlerListesi.get(0)));
-		musabaka.setDeplasmanID(String.valueOf(takimIdlerListesi.get(1)));
-		
-		System.out.println(musabaka);
-		Map<Integer, List<Musabaka>> fikstur = new HashMap<>();*/
 	}
 	private void zamanGecir(){
 		LocalDate ldt = LocalDate.of(2024, 10, 10);

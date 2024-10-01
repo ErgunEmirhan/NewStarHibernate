@@ -5,24 +5,26 @@
              version="2.1">
 
     <persistence-unit name="pu_hibernate">
-        <class>SoccerApp.entity.Stadium</class>
-        <class>SoccerApp.entity.Club</class>
-        <class>SoccerApp.entity.Manager</class>
-        <class>SoccerApp.entity.Referee</class>
-        <class>SoccerApp.entity.League</class>
-        <class>SoccerApp.entity.MatchStatistics</class>
-        <class>SoccerApp.entity.Match</class>
-        <class>SoccerApp.entity.Player</class>
-        <class>SoccerApp.entity.LineUp</class>
-        <class>SoccerApp.entity.Account</class>
-        <class>SoccerApp.entity.OfferWithPlayer</class>
-        <class>SoccerApp.entity.OfferWithManager</class>
-        <class>SoccerApp.entity.Transfer</class>
+        <class>SoccerApp.entity.mainEntity.Stadium</class>
+        <class>SoccerApp.entity.mainEntity.Club</class>
+        <class>SoccerApp.entity.mainEntity.Manager</class>
+        <class>SoccerApp.entity.mainEntity.Referee</class>
+        <class>SoccerApp.entity.mainEntity.League</class>
+        <class>SoccerApp.entity.combinedEntity.MatchStatistics</class>
+        <class>SoccerApp.entity.mainEntity.Match</class>
+        <class>SoccerApp.entity.mainEntity.Player</class>
+        <class>SoccerApp.entity.combinedEntity.LineUp</class>
+        <class>SoccerApp.entity.combinedEntity.Account</class>
+        <class>SoccerApp.entity.combinedEntity.OfferWithPlayer</class>
+        <class>SoccerApp.entity.combinedEntity.OfferWithManager</class>
+        <class>SoccerApp.entity.combinedEntity.Transfer</class>
 
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver"
                       value="org.postgresql.Driver" />
+
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
 
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5432/newstarfootball" />
@@ -34,13 +36,8 @@
                       value="root" />
 
             <property name="hibernate.show_sql"
-                      value="true" />
+                      value="false" />
 
-            <property name="hibernate.format_sql"
-                      value="true" />
-            
-            <property name="hibernate.highlight_sql"
-                      value="true"/>
 
             <property name="hibernate.hbm2ddl.auto"
                       value="update" />

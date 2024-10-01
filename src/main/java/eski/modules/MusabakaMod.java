@@ -1,6 +1,6 @@
 package eski.modules;
 
-import SoccerApp.NewStarSoccerApp;
+import eski.NewStarSoccerApp;
 import eski.entities.*;
 import eski.models.DatabaseModel;
 import eski.models.LigModel;

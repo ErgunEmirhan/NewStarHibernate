@@ -5,11 +5,13 @@ import SoccerApp.entity.combinedEntity.MatchStatistics;
 import SoccerApp.utility.enums.Division;
 import SoccerApp.utility.enums.Region;
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.collection.spi.PersistentSet;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -27,7 +29,7 @@ public class League extends BaseEntity {
 	private Long id;
 	private String name;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	private Set<Club> clubs;
+	private List<Club> clubs;
 	private String season;
 	@Enumerated(EnumType.STRING)
 	private Region region;
@@ -39,8 +41,9 @@ public class League extends BaseEntity {
 	private LocalDate startDate;
 	@Column(name = "enddate")
 	private LocalDate endDate;
-	@OneToMany(mappedBy = "league")
-	private Set<Match> fixture;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST,mappedBy = "league")
-	private Set<MatchStatistics> standings;
+	@OneToMany(mappedBy = "league", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	private List<Match> fixture;
+	@OneToMany(cascade = CascadeType.PERSIST,mappedBy = "league")
+	private List<MatchStatistics> standings;
+	
 }

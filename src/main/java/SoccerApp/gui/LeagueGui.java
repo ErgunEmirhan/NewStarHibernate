@@ -2,8 +2,11 @@ package SoccerApp.gui;
 
 import SoccerApp.controller.ClubController;
 import SoccerApp.controller.LeagueController;
+import SoccerApp.controller.MatchController;
+import SoccerApp.dto.request.MatchByClubAndLeagueDtoRequest;
 import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.entity.mainEntity.League;
+import SoccerApp.entity.mainEntity.Match;
 import SoccerApp.model.ClubsListedModel;
 import SoccerApp.model.FixtureModel;
 import SoccerApp.model.LeagueModel;
@@ -14,12 +17,13 @@ import SoccerApp.utility.enums.Region;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class LeagueGui {
 	private static LeagueGui instance;
 	private LeagueController leagueController;
 	private ClubController clubController;
-	private List<League> listedLeagues;
+	private List<League> listedLeagues = new ArrayList<>();
 	private Scanner scanner=new Scanner(System.in);
 	public static LeagueGui getInstance() {
 		if (instance == null) {
@@ -75,7 +79,7 @@ public class LeagueGui {
 				showFixture();
 				break;
 			case 6:
-				
+				showClubFixture();
 				break;
 			case 7:
 				
@@ -88,13 +92,41 @@ public class LeagueGui {
 		return choice;
 	}
 	
+	private void showClubFixture() {
+		Optional<League> optLeague = findLeague();
+		League league = null;
+		List<Club> clubList = null;
+		if (optLeague.isPresent()){
+			league = optLeague.get();
+			clubList = league.getClubs();
+			if (clubList.isEmpty()){
+				System.out.println("No clubs in the league yet :(");
+				return;
+			}
+			else ClubsListedModel.listClubs(clubList.stream().toList());
+		}
+		else return;
+		
+		int clubIndex = InputHandler.integerInput("Choose a club");
+		try{
+			Club club = clubList.get(clubIndex);
+			MatchByClubAndLeagueDtoRequest request = new MatchByClubAndLeagueDtoRequest(club, league);
+			List<Match> clubFixture = MatchController.getInstance().findMatchByClubAndLeague(request);
+			FixtureModel.showFixture(clubFixture);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
 	private void showFixture() {
 		Optional<League> optLeague = findLeague();
 		if (optLeague.isEmpty()){
 			System.out.println("No such league");
 			return;
 		}
-		FixtureModel.showFixture(optLeague.get().getFixture().stream().toList());
+		FixtureModel.showFixture(optLeague.get().getFixture());
 	}
 	
 	private void createFixture() {
@@ -111,17 +143,26 @@ public class LeagueGui {
 		}
 		
 		arrangeMatches(league);
+		if(league.getFixture().isEmpty()) {
+			System.out.println("No fixture >:(");
+			return;
+		}
+		
+		System.out.println("Successfully created fixture");
+		MatchController.getInstance().saveAll(league.getFixture());
 	}
 	
 	private void arrangeMatches(League league) {
-		var fixture = MatchArrangeAlgoritm.matchArrangeAlgorithm(league);
+		MatchArrangeAlgoritm.matchArrangeAlgorithm(league);
+		
 	}
 	
 	private Optional<League> findLeague() {
 		showLeagues();
-		int leagueIndex = InputHandler.integerInput("For which league do you want to create fixture> ");
+		if (listedLeagues.isEmpty()) return Optional.empty();
+		int leagueIndex = InputHandler.integerInput("Choose a league> ");
 		try{
-			League league = listedLeagues.get(leagueIndex);
+			League league = listedLeagues.get(leagueIndex - 1);
 			return Optional.of(league);
 		}
 		catch (Exception e){
@@ -138,13 +179,19 @@ public class LeagueGui {
 		LeagueModel.showLeagues(listedLeagues);
 	}
 	
-	private void showParticipantClubsInTheLeague() {
+	private List<Club> showParticipantClubsInTheLeague() {
 		Optional<League> optLeague = findLeague();
 		if (optLeague.isPresent()){
 			League league = optLeague.get();
-			Set<Club> clubList = league.getClubs();
-			ClubsListedModel.listClubs(clubList.stream().toList());
+			List<Club> clubList = league.getClubs();
+			if (clubList.isEmpty()){
+				System.out.println("No clubs in the league yet :(");
+			}
+			else ClubsListedModel.listClubs(clubList.stream().toList());
+			
+			return clubList;
 		}
+		else return new ArrayList<>();
 	}
 	
 	
@@ -163,26 +210,30 @@ public class LeagueGui {
 		List<Club> allClubs = clubController.findAll();
 		ClubsListedModel.listClubs(allClubs);
 		boolean isFull=league.getClubs().size()>= league.getTeamCount();
-		if (!isFull){
-			int clubIndex;
-			do{
-				clubIndex= InputHandler.integerInput("Enter the index of the club you want to add to the league >");
-				try {
-					Club club = allClubs.get(clubIndex - 1);
-					if (league.getClubs().contains(club)) {
-						league.getClubs().add(club);
-					}
-					else {
-						System.out.println("The club is already in the league");
-					}
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-			}while (clubIndex!=0&&(!isFull));
+		if (isFull) {
+			System.out.println("League is already full");
+			return;
 		}
+		
+		int clubIndex;
+		do{
+			clubIndex= InputHandler.integerInput("Enter the index of the club you want to add to the league >");
+			try {
+				Club club = allClubs.get(clubIndex - 1);
+				if (!league.getClubs().contains(club)) {
+					league.getClubs().add(club);
+				}
+				else {
+					System.out.println("The club is already in the league");
+				}
+			}
+			catch (Exception e) {
+				System.out.println("Something went wrong adding clubs to the league..." + e.getMessage());
+			}
+			isFull=league.getClubs().size()>= league.getTeamCount();
+		}while (clubIndex!=0&&(!isFull));
+		leagueController.update(league);
 	}
-	
 	
 	private void createLeague() {
 		System.out.print("Please enter a league name : ");
@@ -198,12 +249,11 @@ public class LeagueGui {
 		System.out.println(Arrays.toString(divisions));
 		String leagueDivision= scanner.nextLine();
 		System.out.print("Please enter a max number of teams");
-		byte leagueMaxTeamNumber = scanner.nextByte();
-		System.out.print("Please enter a start date");
-		LocalDate leagueStartDate = LocalDate.parse(scanner.nextLine());
-		System.out.print("Please enter a end date");
-		LocalDate leagueEndDate = LocalDate.parse(scanner.nextLine());
+		byte leagueMaxTeamNumber = scanner.nextByte(); scanner.nextLine();
+		LocalDate leagueStartDate = InputHandler.localDateInput("Please enter a start date");
+		LocalDate leagueEndDate = InputHandler.localDateInput("Please enter a end date");
 		League league=
 				League.builder().name(leagueName).season(leagueSeason).region(Region.valueOf(leagueRegion)).division(Division.valueOf(leagueDivision)).teamCount(leagueMaxTeamNumber).startDate(leagueStartDate).endDate(leagueEndDate).build();
+		leagueController.save(league);
 	}
 }

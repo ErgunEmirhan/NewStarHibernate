@@ -4,6 +4,7 @@ import SoccerApp.entity.abstractEntity.BaseEntity;
 import SoccerApp.utility.enums.MatchType;
 import SoccerApp.utility.enums.WeatherCondition;
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +25,14 @@ public class Match extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "stadiumid")
 	private Stadium stadium;
 	private final int time = 90;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "weathercondition")
 	private WeatherCondition weatherCondition;
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 	@JoinTable(
 	joinColumns = {@JoinColumn(name = "refereeid")},
 	inverseJoinColumns = {@JoinColumn(name = "matchid")})
@@ -40,9 +41,9 @@ public class Match extends BaseEntity {
 	@Column(name = "matchtype")
 	private MatchType matchType;
 	private LocalDateTime matchDate;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Club home;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Club away;
 	@Column(name = "seasonweek")
 	private Byte currentWeekofSeason;

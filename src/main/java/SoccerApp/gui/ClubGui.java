@@ -10,6 +10,7 @@ import eski.entities.Kulup;
 import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.utility.InputHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class ClubGui {
 	private static ClubGui instance;
 	private ClubController clubController = ClubController.getInstance();
 	private Scanner scanner = new Scanner(System.in);
-	private List<Club> listedClubs;
+	private List<Club> listedClubs = new ArrayList<>();
 	private List<Player> listedPlayers;
 	public static ClubGui getInstance() {
 		if(instance==null){

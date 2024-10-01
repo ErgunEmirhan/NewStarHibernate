@@ -6,13 +6,11 @@ import SoccerApp.entity.mainEntity.Match;
 import SoccerApp.utility.enums.MatchType;
 import SoccerApp.utility.enums.WeatherCondition;
 
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class MatchArrangeAlgoritm {
 	private static List<Match> matchList = new ArrayList<>();
@@ -23,9 +21,9 @@ public class MatchArrangeAlgoritm {
 	private static League league;
 	private static LocalDate startDate;
 	
-	public static List<Match> matchArrangeAlgorithm(League leagueWithoutFixture) {
+	public static void matchArrangeAlgorithm(League leagueWithoutFixture) {
 		league = leagueWithoutFixture;
-		List<Club> clubs = league.getClubs().stream().toList();
+		List<Club> clubs = new ArrayList<>(league.getClubs());
 		startDate = league.getStartDate();
 		
 		matchList.clear();
@@ -40,11 +38,28 @@ public class MatchArrangeAlgoritm {
 			List<Match> matchesOfTheWeek = createEmptyMatches(clubs.size());
 			assignClubsToMatches(matchesOfTheWeek, clubs, weekIdx);
 			assignMatchDateToMatches(matchesOfTheWeek, weekIdx);
+			assignSecondHalf(matchesOfTheWeek);
 			matchList.addAll(matchesOfTheWeek);
 		}
 		
 		
-		return matchList;
+		league.setFixture(matchList);
+	}
+	
+	private static void assignSecondHalf(List<Match> matchesOfTheWeek) {
+		List<Match> secondHalfMatches = matchesOfTheWeek.stream().map(match -> {
+			Match sidesReversedMatch = new Match();
+			sidesReversedMatch.setMatchType(match.getMatchType());
+			sidesReversedMatch.setMatchDate(match.getMatchDate().plusWeeks(2 + weekCount));
+			sidesReversedMatch.setCurrentWeekofSeason((byte) (match.getCurrentWeekofSeason() + weekCount));
+			sidesReversedMatch.setHome(match.getAway());
+			sidesReversedMatch.setAway(match.getHome());
+			sidesReversedMatch.setLeague(league);
+			sidesReversedMatch.setStadium(sidesReversedMatch.getHome().getStadium());
+			sidesReversedMatch.setWeatherCondition(WeatherCondition.values()[new Random().nextInt(WeatherCondition.values().length)]);
+			return sidesReversedMatch;
+		}).toList();
+		matchesOfTheWeek.addAll(secondHalfMatches);
 	}
 	
 	private static List<Match> createEmptyMatches(int teamCount){
@@ -70,7 +85,7 @@ public class MatchArrangeAlgoritm {
 			Match match = matchesOfTheWeek.get(i);
 			Club home = clubs.get((clubSize + i - weekCount) % clubSize);
 			match.setHome(home);
-			match.setAway(clubs.get(clubSize - i - weekCount));
+			match.setAway(clubs.get((2*clubSize - i - weekCount - 1) % clubSize));
 			match.setStadium(home.getStadium());
 			match.setCurrentWeekofSeason((byte)weekCount);
 		}

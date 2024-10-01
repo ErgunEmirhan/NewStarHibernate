@@ -25,7 +25,7 @@ public class MainGui {
 	}
 	
 	//TODO : zaman ilerleten thread yapılacak.
-	private int mainGuiMainMenu() {
+	public int mainGuiMainMenu() {
 		int choice;
 		System.out.println("""
 				                    _   _                 ____  _               ____                         \s

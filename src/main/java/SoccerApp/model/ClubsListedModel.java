@@ -12,7 +12,7 @@ public class ClubsListedModel {
 			System.out.println(club.getName() + "\t\t\t" + club.getFoundationYear());
 			System.out.println("-   -   -   -   -   -   -   -   -   -   -");
 			System.out.println("Stadium: " + club.getStadiumName());
-			System.out.println("------------------------\n");
+			System.out.println("------------------------");
 			
 		}
 	}

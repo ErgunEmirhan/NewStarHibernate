@@ -22,7 +22,6 @@ public class AccountGui {
 	private AccountGui() {
 		managerController = ManagerController.getInstance();
 		managerGui = ManagerGui.getInstance();
-		this.instance=AccountGui.getInstance();
 	}
 	
 	public void logIn() {

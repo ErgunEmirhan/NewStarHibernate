@@ -23,4 +23,9 @@ public class Stadium extends BaseEntity {
 	private Integer capacity;
 	@OneToMany
 	private List<Club> clubList;
+	
+	@Override
+	public String toString() {
+		return "Stadium{" + "id=" + getId() + ", name='" + getName() + '\'' + ", capacity=" + getCapacity() + '}';
+	}
 }

@@ -11,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @SuperBuilder
 @Data
-@EqualsAndHashCode(exclude = {"manager"})
+@EqualsAndHashCode(exclude = {"manager", "squad"})
 @Entity
 @Table(name = "tblclub")
 public class Club extends BaseEntity {
@@ -43,6 +43,6 @@ public class Club extends BaseEntity {
 	
 	@Override
 	public String toString() {
-		return "Club{" + "id=" + getId() + ", name='" + getName() + '\'' + ", foundationYear=" + getFoundationYear() + ", stadiumId=" + getStadium() + ", stadiumName='" + getStadiumName() + '\'' + ", chairman='" + getChairman() + '\'' + ", budget='" + getBudget() + '\'' + ", wageBill='" + getWageBill() + '\'' + ", state=" + getState() + '}';
+		return "Club{" + "id=" + getId() + ", name='" + getName() + '\'' + ", foundationYear=" + getFoundationYear() + ", stadiumName='" + getStadiumName() + '\'' + ", chairman='" + getChairman() + '\'' + ", budget='" + getBudget() + '\'' + ", wageBill='" + getWageBill() + '\'' + ", state=" + getState() + '}';
 	}
 }

@@ -1,6 +1,6 @@
 package SoccerApp.gui;
 
-import SoccerApp.NewStarSoccerApp;
+import eski.NewStarSoccerApp;
 
 public class MatchGui {
 	private static MatchGui instance;

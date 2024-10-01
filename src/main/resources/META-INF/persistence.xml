@@ -24,6 +24,8 @@
             <property name="jakarta.persistence.jdbc.driver"
                       value="org.postgresql.Driver" />
 
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5432/newstarfootball" />
 
@@ -34,13 +36,8 @@
                       value="root" />
 
             <property name="hibernate.show_sql"
-                      value="true" />
+                      value="false" />
 
-            <property name="hibernate.format_sql"
-                      value="true" />
-            
-            <property name="hibernate.highlight_sql"
-                      value="true"/>
 
             <property name="hibernate.hbm2ddl.auto"
                       value="update" />
