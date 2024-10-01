@@ -5,6 +5,7 @@ import SoccerApp.controller.LeagueController;
 import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.entity.mainEntity.League;
 import SoccerApp.model.ClubsListedModel;
+import SoccerApp.model.FixtureModel;
 import SoccerApp.model.LeagueModel;
 import SoccerApp.utility.InputHandler;
 import SoccerApp.utility.MatchArrangeAlgoritm;
@@ -71,7 +72,7 @@ public class LeagueGui {
 				createFixture();
 				break;
 			case 5:
-				
+				showFixture();
 				break;
 			case 6:
 				
@@ -85,6 +86,15 @@ public class LeagueGui {
 				System.out.println("Girdi gecersiz x_x");
 		}
 		return choice;
+	}
+	
+	private void showFixture() {
+		Optional<League> optLeague = findLeague();
+		if (optLeague.isEmpty()){
+			System.out.println("No such league");
+			return;
+		}
+		FixtureModel.showFixture(optLeague.get().getFixture().stream().toList());
 	}
 	
 	private void createFixture() {
@@ -104,9 +114,7 @@ public class LeagueGui {
 	}
 	
 	private void arrangeMatches(League league) {
-		LocalDate startDate = league.getStartDate();
-		List<Club> clubs = league.getClubs().stream().toList();
-		var fixture = MatchArrangeAlgoritm.matchArrangeAlgorithm(clubs, startDate);
+		var fixture = MatchArrangeAlgoritm.matchArrangeAlgorithm(league);
 	}
 	
 	private Optional<League> findLeague() {
