@@ -2,7 +2,9 @@ package SoccerApp.controller;
 
 import SoccerApp.entity.combinedEntity.MatchStatistics;
 import SoccerApp.entity.mainEntity.League;
+import SoccerApp.entity.mainEntity.Match;
 import SoccerApp.service.MatchStatisticsService;
+import SoccerApp.utility.enums.ScorerSide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,14 @@ public class MatchStatisticsController extends BaseController<MatchStatistics,Lo
 			service.createMatchStatistics(league);
 		}
 		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void updateStatsForMatch(Match match,  ScorerSide scorerSide) {
+		try{
+			service.updateStatsForMatch(match, scorerSide);
+		} catch (Exception e){
 			System.out.println(e.getMessage());
 		}
 	}
