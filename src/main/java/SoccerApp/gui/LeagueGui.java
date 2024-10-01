@@ -12,6 +12,7 @@ import SoccerApp.entity.mainEntity.Match;
 import SoccerApp.model.ClubsListedModel;
 import SoccerApp.model.FixtureModel;
 import SoccerApp.model.LeagueModel;
+import SoccerApp.model.StandingsModel;
 import SoccerApp.utility.InputHandler;
 import SoccerApp.utility.MatchArrangeAlgoritm;
 import SoccerApp.utility.enums.Division;
@@ -106,7 +107,7 @@ public class LeagueGui {
 		}
 		var standings = MatchStatisticsController
 				.getInstance().findStandings(optLeague.get());
-		System.out.println(standings);
+		StandingsModel.showStandings(standings);
 	}
 	
 	private void showClubFixture() {
@@ -126,9 +127,11 @@ public class LeagueGui {
 		
 		int clubIndex = InputHandler.integerInput("Choose a club");
 		try{
-			Club club = clubList.get(clubIndex);
-			MatchByClubAndLeagueDtoRequest request = new MatchByClubAndLeagueDtoRequest(club, league);
-			List<Match> clubFixture = MatchController.getInstance().findMatchByClubAndLeague(request);
+			Club club = clubList.get(clubIndex - 1);
+			MatchByClubAndLeagueDtoRequest request =
+					new MatchByClubAndLeagueDtoRequest(club, league);
+			List<Match> clubFixture = MatchController.getInstance()
+                                        .findMatchByClubAndLeague(request);
 			FixtureModel.showFixture(clubFixture);
 		}
 		catch (Exception e) {
@@ -222,7 +225,8 @@ public class LeagueGui {
 			league = optLeague.get();
 		}
 		else {
-			System.out.println("League does not exist. Please create a league first");
+			System.out
+					.println("League does not exist. Please create a league first");
 			return;
 		}
 		List<Club> allClubs = clubController.findAll();
@@ -235,7 +239,8 @@ public class LeagueGui {
 		
 		int clubIndex;
 		do{
-			clubIndex= InputHandler.integerInput("Enter the index of the club you want to add to the league >");
+			clubIndex= InputHandler
+					.integerInput("Enter the index of the club you want to add to the league >");
 			try {
 				Club club = allClubs.get(clubIndex - 1);
 				if (!league.getClubs().contains(club)) {
@@ -246,7 +251,8 @@ public class LeagueGui {
 				}
 			}
 			catch (Exception e) {
-				System.out.println("Something went wrong adding clubs to the league..." + e.getMessage());
+				System.out
+						.println("Something went wrong adding clubs to the league..." + e.getMessage());
 			}
 			isFull=league.getClubs().size()>= league.getTeamCount();
 		}while (clubIndex!=0&&(!isFull));
@@ -271,7 +277,11 @@ public class LeagueGui {
 		LocalDate leagueStartDate = InputHandler.localDateInput("Please enter a start date");
 		LocalDate leagueEndDate = InputHandler.localDateInput("Please enter a end date");
 		League league=
-				League.builder().name(leagueName).season(leagueSeason).region(Region.valueOf(leagueRegion)).division(Division.valueOf(leagueDivision)).teamCount(leagueMaxTeamNumber).startDate(leagueStartDate).endDate(leagueEndDate).build();
+				League.builder().name(leagueName)
+				      .season(leagueSeason).region(Region.valueOf(leagueRegion))
+				      .division(Division.valueOf(leagueDivision))
+				      .teamCount(leagueMaxTeamNumber).startDate(leagueStartDate)
+				      .endDate(leagueEndDate).build();
 		leagueController.save(league);
 	}
 }

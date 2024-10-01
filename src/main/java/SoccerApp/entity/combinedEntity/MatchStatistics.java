@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Data
+@EqualsAndHashCode(exclude = {"club", "league"})
 @Entity
 @Table(name = "tblmatchstatistics")
 public class MatchStatistics extends BaseEntity {
@@ -30,5 +31,13 @@ public class MatchStatistics extends BaseEntity {
 	private int goalsForCount=0;
 	@Builder.Default
 	private int goalsAgainstCount=0;
-
+	
+	@Override
+	public String toString() {
+		return "MatchStatistics{" + "club=" + getClub().getName() +
+				", league=" + getLeague().getName() + ", winCount=" +
+				getWinCount() + ", drawCount=" + getDrawCount() + ", loseCount=" +
+				getLoseCount() + ", goalsForCount=" + getGoalsForCount() +
+				", goalsAgainstCount=" + getGoalsAgainstCount() + '}';
+	}
 }

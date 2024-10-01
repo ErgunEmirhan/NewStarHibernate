@@ -70,8 +70,8 @@ public class MatchArrangeAlgoritm {
 			                 .league(league)
 			                 .matchType(MatchType.LEAGUE)
 			                 .weatherCondition(WeatherCondition
-					                                   .values()
-					                                   [random.nextInt(WeatherCondition.values().length)])
+                               .values()
+                               [random.nextInt(WeatherCondition.values().length)])
 			                 .build());
 		}
 		return matches;
@@ -87,7 +87,7 @@ public class MatchArrangeAlgoritm {
 			match.setHome(home);
 			match.setAway(clubs.get((2*clubSize - i - weekCount - 1) % clubSize));
 			match.setStadium(home.getStadium());
-			match.setCurrentWeekofSeason((byte)weekCount);
+			match.setCurrentWeekofSeason((byte)(1 + weekCount));
 		}
 	}
 	

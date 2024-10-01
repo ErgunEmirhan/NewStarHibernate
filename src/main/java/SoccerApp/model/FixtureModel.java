@@ -19,11 +19,14 @@ public class FixtureModel {
 
 		for (Map.Entry<Byte, List<Match>> entryByWeek : collect.entrySet()) {
 			System.out.println("###########################");
-			System.out.println("### Week " + (entryByWeek.getKey()+1) + " ###");
+			System.out.println("### Week " + (entryByWeek.getKey()) + " ###");
 			Map<LocalDate, List<Match>> matchesByDay = entryByWeek
 					.getValue().stream()
                     .collect(Collectors.groupingBy(match -> match.getMatchDate().toLocalDate()));
-			for (Map.Entry<LocalDate, List<Match>> entryByDayOfWeek : matchesByDay.entrySet()) {
+			Map<LocalDate, List<Match>> matchesByDate = new TreeMap<>();
+			matchesByDate.putAll(matchesByDay);
+			
+			for (Map.Entry<LocalDate, List<Match>> entryByDayOfWeek : matchesByDate.entrySet()) {
 				System.out.println("---- Day " + entryByDayOfWeek.getKey().getDayOfWeek() + " ----");
 				entryByDayOfWeek.getValue().forEach(match -> {
                                 System.out.println("HOME: " + match.getHome().getName() +
