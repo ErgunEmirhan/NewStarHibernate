@@ -20,10 +20,15 @@ public class MatchStatistics extends BaseEntity {
 	@Id
 	@ManyToOne
 	private League league;
-	private int winCount;
-	private int drawCount;
-	private int loseCount;
-	private int goalsForCount;
-	private int goalsAgainstCount;
+	@Builder.Default
+	private int winCount = 0;
+	@Builder.Default
+	private int drawCount=0;
+	@Builder.Default
+	private int loseCount=0;
+	@Builder.Default
+	private int goalsForCount=0;
+	@Builder.Default
+	private int goalsAgainstCount=0;
 
 }

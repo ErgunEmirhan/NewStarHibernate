@@ -3,7 +3,9 @@ package SoccerApp.gui;
 import SoccerApp.controller.ClubController;
 import SoccerApp.controller.LeagueController;
 import SoccerApp.controller.MatchController;
+import SoccerApp.controller.MatchStatisticsController;
 import SoccerApp.dto.request.MatchByClubAndLeagueDtoRequest;
+import SoccerApp.entity.combinedEntity.MatchStatistics;
 import SoccerApp.entity.mainEntity.Club;
 import SoccerApp.entity.mainEntity.League;
 import SoccerApp.entity.mainEntity.Match;
@@ -82,7 +84,7 @@ public class LeagueGui {
 				showClubFixture();
 				break;
 			case 7:
-				
+				showStandings();
 				break;
 			case -1:
 				break;
@@ -90,6 +92,21 @@ public class LeagueGui {
 				System.out.println("Girdi gecersiz x_x");
 		}
 		return choice;
+	}
+	
+	private void createMatchStatistics(League league) {
+		MatchStatisticsController.getInstance().createMatchStatistics(league);
+	}
+	
+	private void showStandings() {
+		Optional<League> optLeague = findLeague();
+		if (optLeague.isEmpty()){
+			System.out.println("No such league");
+			return;
+		}
+		var standings = MatchStatisticsController
+				.getInstance().findStandings(optLeague.get());
+		System.out.println(standings);
 	}
 	
 	private void showClubFixture() {
@@ -150,6 +167,7 @@ public class LeagueGui {
 		
 		System.out.println("Successfully created fixture");
 		MatchController.getInstance().saveAll(league.getFixture());
+		createMatchStatistics(league);
 	}
 	
 	private void arrangeMatches(League league) {
